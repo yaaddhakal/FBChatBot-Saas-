@@ -1,0 +1,835 @@
+2026-02-24 07:59:37.906 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 07:59:39.601 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 07:59:39.656 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 07:59:41.761 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5234: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 07:59:42.063 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5234: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 08:00:30.432 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:00:31.831 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:00:31.873 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:00:33.825 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5234: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 08:00:34.106 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5234: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 08:01:26.381 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:27.312 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:27.331 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:27.926 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:28.114 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:28.132 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:28.156 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:28.194 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:33.038 +05:45 [INF] HTTP GET / started. TraceId: 9c788278-df94-47a2-9ddf-b59ce4008af2, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OB:00000001","RequestPath":"/","ConnectionId":"0HNJJ9ART47OB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:01:33.199 +05:45 [INF] HTTP GET / completed. TraceId: 9c788278-df94-47a2-9ddf-b59ce4008af2, Status: 301, Duration: 180ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OB:00000001","RequestPath":"/","ConnectionId":"0HNJJ9ART47OB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:01:33.328 +05:45 [INF] HTTP GET /index.html started. TraceId: 388143bd-8b7b-4c70-9933-bbcef80bb26c, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OB:00000002","RequestPath":"/index.html","ConnectionId":"0HNJJ9ART47OB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:01:33.667 +05:45 [INF] HTTP GET /index.html completed. TraceId: 388143bd-8b7b-4c70-9933-bbcef80bb26c, Status: 200, Duration: 339ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OB:00000002","RequestPath":"/index.html","ConnectionId":"0HNJJ9ART47OB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:01:33.868 +05:45 [INF] HTTP GET /swagger-ui-bundle.js started. TraceId: 2f488921-fe45-4fe7-be6d-ad866f0bc440, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OD:00000001","RequestPath":"/swagger-ui-bundle.js","ConnectionId":"0HNJJ9ART47OD","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:01:33.868 +05:45 [INF] HTTP GET /index.css started. TraceId: a1cf0845-ac21-4b42-be4b-dfafbd8dab8b, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OC:00000001","RequestPath":"/index.css","ConnectionId":"0HNJJ9ART47OC","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 08:01:33.868 +05:45 [INF] HTTP GET /swagger-ui.css started. TraceId: b0113384-7c9a-40f0-9c6d-fcc89c5ea7e3, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OB:00000003","RequestPath":"/swagger-ui.css","ConnectionId":"0HNJJ9ART47OB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 08:01:33.925 +05:45 [INF] HTTP GET /index.js started. TraceId: 5908dec1-a49d-4575-a3e8-b5d8d3f64bae, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OF:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJ9ART47OF","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 08:01:33.889 +05:45 [INF] HTTP GET /swagger-ui-standalone-preset.js started. TraceId: 55d390ac-e0ed-4f89-b173-eae2aee77f71, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OE:00000001","RequestPath":"/swagger-ui-standalone-preset.js","ConnectionId":"0HNJJ9ART47OE","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 08:01:34.172 +05:45 [INF] HTTP GET /swagger-ui-bundle.js completed. TraceId: 2f488921-fe45-4fe7-be6d-ad866f0bc440, Status: 200, Duration: 304ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OD:00000001","RequestPath":"/swagger-ui-bundle.js","ConnectionId":"0HNJJ9ART47OD","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:01:34.266 +05:45 [INF] HTTP GET /index.css completed. TraceId: a1cf0845-ac21-4b42-be4b-dfafbd8dab8b, Status: 200, Duration: 398ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OC:00000001","RequestPath":"/index.css","ConnectionId":"0HNJJ9ART47OC","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 08:01:34.334 +05:45 [INF] HTTP GET /swagger-ui.css completed. TraceId: b0113384-7c9a-40f0-9c6d-fcc89c5ea7e3, Status: 200, Duration: 466ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OB:00000003","RequestPath":"/swagger-ui.css","ConnectionId":"0HNJJ9ART47OB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 08:01:34.386 +05:45 [INF] HTTP GET /index.js completed. TraceId: 5908dec1-a49d-4575-a3e8-b5d8d3f64bae, Status: 200, Duration: 461ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OF:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJ9ART47OF","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 08:01:34.438 +05:45 [INF] HTTP GET /swagger-ui-standalone-preset.js completed. TraceId: 55d390ac-e0ed-4f89-b173-eae2aee77f71, Status: 200, Duration: 549ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OE:00000001","RequestPath":"/swagger-ui-standalone-preset.js","ConnectionId":"0HNJJ9ART47OE","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 08:01:35.248 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 06568fc8-31ae-488f-993a-adbe837dada2, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OE:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJ9ART47OE","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 08:01:35.324 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 06568fc8-31ae-488f-993a-adbe837dada2, Status: 200, Duration: 75ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OE:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJ9ART47OE","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 08:01:35.330 +05:45 [INF] HTTP GET /favicon-32x32.png started. TraceId: b9e9162c-8fcf-41f8-8903-7f742ffc73a5, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OF:00000002","RequestPath":"/favicon-32x32.png","ConnectionId":"0HNJJ9ART47OF","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 08:01:35.414 +05:45 [INF] HTTP GET /favicon-32x32.png completed. TraceId: b9e9162c-8fcf-41f8-8903-7f742ffc73a5, Status: 200, Duration: 83ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9ART47OF:00000002","RequestPath":"/favicon-32x32.png","ConnectionId":"0HNJJ9ART47OF","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 08:01:55.101 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:56.036 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:56.056 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:56.669 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:57.203 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:57.222 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:57.244 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:01:57.264 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:02:01.048 +05:45 [INF] HTTP GET /index.html started. TraceId: 558e123b-0935-43ef-afa1-bbe2135f7d9e, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9B4CROQA:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJ9B4CROQA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 08:02:01.469 +05:45 [INF] HTTP GET /index.html completed. TraceId: 558e123b-0935-43ef-afa1-bbe2135f7d9e, Status: 200, Duration: 451ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9B4CROQA:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJ9B4CROQA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 08:02:01.668 +05:45 [INF] HTTP GET /index.js started. TraceId: 8686766f-af8a-41f2-ac8d-85aaef205cbf, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9B4CROQ9:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJ9B4CROQ9","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 08:02:01.795 +05:45 [INF] HTTP GET /index.js completed. TraceId: 8686766f-af8a-41f2-ac8d-85aaef205cbf, Status: 200, Duration: 128ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9B4CROQ9:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJ9B4CROQ9","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 08:02:03.113 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 74931444-1de8-456b-9051-4134c994827f, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9B4CROQA:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJ9B4CROQA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:02:03.187 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 74931444-1de8-456b-9051-4134c994827f, Status: 200, Duration: 73ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJ9B4CROQA:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJ9B4CROQA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":10}
+2026-02-24 08:09:24.092 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:09:25.726 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:09:25.749 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:09:28.313 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 08:09:28.630 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 08:12:05.645 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:12:06.594 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:12:06.613 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:12:08.503 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 08:12:08.828 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 08:13:42.804 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:13:43.842 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:13:44.553 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:13:47.089 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 08:13:47.351 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 08:15:01.202 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:15:02.616 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:15:02.647 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:15:05.190 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 08:15:05.466 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 08:17:10.436 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:17:11.686 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:17:11.707 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 08:17:13.580 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 08:17:13.866 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 09:02:24.077 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:02:25.634 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:02:25.653 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:02:27.805 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 09:02:28.118 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address http://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 09:03:01.554 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:02.472 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:02.497 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:04.164 +05:45 [ERR] Hosting failed to start {"EventId":{"Id":11,"Name":"HostedServiceStartupFaulted"},"SourceContext":"Microsoft.Extensions.Hosting.Internal.Host","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address https://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-24 09:03:04.418 +05:45 [FTL] Application terminated unexpectedly {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+System.IO.IOException: Failed to bind to address https://127.0.0.1:7257: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI\Program.cs:line 255
+2026-02-24 09:03:40.157 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:41.105 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:41.124 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:41.739 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:41.980 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:41.999 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:42.018 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:42.036 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:03:45.804 +05:45 [INF] HTTP GET /index.html started. TraceId: 2f4acf54-ab07-4636-b88b-52df1dc5aa21, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJADKJ9300:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJADKJ9300","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 09:03:46.019 +05:45 [INF] HTTP GET /index.html completed. TraceId: 2f4acf54-ab07-4636-b88b-52df1dc5aa21, Status: 200, Duration: 233ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJADKJ9300:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJADKJ9300","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 09:03:46.139 +05:45 [INF] HTTP GET /index.js started. TraceId: d78408f4-153c-40d3-b497-2a09ea4e0256, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJADKJ92VV:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJADKJ92VV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 09:03:46.197 +05:45 [INF] HTTP GET /index.js completed. TraceId: d78408f4-153c-40d3-b497-2a09ea4e0256, Status: 200, Duration: 58ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJADKJ92VV:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJADKJ92VV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 09:03:49.830 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 57ccd650-6b2b-4c7c-a7ce-ba61ce545b65, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJADKJ92VV:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJADKJ92VV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:03:50.016 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 57ccd650-6b2b-4c7c-a7ce-ba61ce545b65, Status: 200, Duration: 186ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJADKJ92VV:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJADKJ92VV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:09:04.590 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:05.536 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:05.557 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:06.131 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:06.324 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:06.361 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:06.385 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:06.418 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:09:10.349 +05:45 [INF] HTTP GET /index.html started. TraceId: 9ec10c46-734c-46bf-aa65-4be0164de623, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJAGLAPRE2:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJAGLAPRE2","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 09:09:10.775 +05:45 [INF] HTTP GET /index.html completed. TraceId: 9ec10c46-734c-46bf-aa65-4be0164de623, Status: 200, Duration: 461ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJAGLAPRE2:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJAGLAPRE2","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 09:09:10.949 +05:45 [INF] HTTP GET /index.js started. TraceId: d3993f17-7aef-40bf-888e-e44cd9e9b83b, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJAGLAPRE1:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJAGLAPRE1","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 09:09:11.034 +05:45 [INF] HTTP GET /index.js completed. TraceId: d3993f17-7aef-40bf-888e-e44cd9e9b83b, Status: 200, Duration: 85ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJAGLAPRE1:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJAGLAPRE1","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 09:09:11.288 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: c8cacec0-87a8-48a5-b165-9a2bc0aa5e05, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJAGLAPRE2:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJAGLAPRE2","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 09:09:11.401 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: c8cacec0-87a8-48a5-b165-9a2bc0aa5e05, Status: 200, Duration: 113ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJAGLAPRE2:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJAGLAPRE2","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 09:28:36.148 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.071 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.092 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.675 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.878 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.898 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.919 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:37.940 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:28:41.523 +05:45 [INF] HTTP GET /index.html started. TraceId: 646cd09e-282e-4ce0-919b-586a4f426ebf, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJARIDGQKV:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJARIDGQKV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 09:28:41.821 +05:45 [INF] HTTP GET /index.html completed. TraceId: 646cd09e-282e-4ce0-919b-586a4f426ebf, Status: 200, Duration: 323ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJARIDGQKV:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJARIDGQKV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 09:28:41.996 +05:45 [INF] HTTP GET /index.js started. TraceId: 8a18a392-61d1-4eda-bd07-13d02dea4d8c, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJARIDGQL0:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJARIDGQL0","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:28:42.227 +05:45 [INF] HTTP GET /index.js completed. TraceId: 8a18a392-61d1-4eda-bd07-13d02dea4d8c, Status: 200, Duration: 231ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJARIDGQL0:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJARIDGQL0","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:28:42.477 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: f16cdc20-63f8-4d52-96dc-59aa16cbb3db, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJARIDGQL0:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJARIDGQL0","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:28:42.603 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: f16cdc20-63f8-4d52-96dc-59aa16cbb3db, Status: 200, Duration: 126ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJARIDGQL0:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJARIDGQL0","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:56:32.679 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:33.678 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:33.700 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:34.354 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:34.917 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:34.935 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:34.953 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:34.972 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 09:56:38.528 +05:45 [INF] HTTP GET /index.html started. TraceId: ab9f692c-9ddc-4ba2-9707-28984ea0fd7f, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJBB63J60O:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJBB63J60O","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:56:38.841 +05:45 [INF] HTTP GET /index.html completed. TraceId: ab9f692c-9ddc-4ba2-9707-28984ea0fd7f, Status: 200, Duration: 331ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJBB63J60O:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJBB63J60O","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:56:38.993 +05:45 [INF] HTTP GET /index.js started. TraceId: 6002ac2b-9ef3-41c7-ad3e-a2f190d2f593, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJBB63J60P:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJBB63J60P","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:56:39.059 +05:45 [INF] HTTP GET /index.js completed. TraceId: 6002ac2b-9ef3-41c7-ad3e-a2f190d2f593, Status: 200, Duration: 67ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJBB63J60P:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJBB63J60P","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 09:56:39.338 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: d27269d2-02f6-4a10-b0b6-ed55fa2db13d, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJBB63J60O:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJBB63J60O","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":14}
+2026-02-24 09:56:39.478 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: d27269d2-02f6-4a10-b0b6-ed55fa2db13d, Status: 200, Duration: 139ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJBB63J60O:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJBB63J60O","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":14}
+2026-02-24 11:04:21.433 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:22.776 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:22.798 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:23.529 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:24.142 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:24.164 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:24.184 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:24.203 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 11:04:28.305 +05:45 [INF] HTTP GET /index.html started. TraceId: 2ff69d56-705e-4123-867c-7a84e2e6823a, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJCH2THAIV:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJCH2THAIV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 11:04:28.572 +05:45 [INF] HTTP GET /index.html completed. TraceId: 2ff69d56-705e-4123-867c-7a84e2e6823a, Status: 200, Duration: 287ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJCH2THAIV:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJCH2THAIV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 11:04:28.768 +05:45 [INF] HTTP GET /index.js started. TraceId: af0d284c-c2a1-435d-92b3-4781eb0606a9, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJCH2THAIV:00000002","RequestPath":"/index.js","ConnectionId":"0HNJJCH2THAIV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 11:04:28.823 +05:45 [INF] HTTP GET /index.js completed. TraceId: af0d284c-c2a1-435d-92b3-4781eb0606a9, Status: 200, Duration: 54ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJCH2THAIV:00000002","RequestPath":"/index.js","ConnectionId":"0HNJJCH2THAIV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 11:04:30.383 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 72c8c9aa-f3c0-4393-afc2-270f12b83dc9, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJCH2THAIV:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJCH2THAIV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 11:04:30.475 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 72c8c9aa-f3c0-4393-afc2-270f12b83dc9, Status: 200, Duration: 91ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJCH2THAIV:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJCH2THAIV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 12:41:08.557 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:10.247 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:10.265 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:11.029 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:11.232 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:11.252 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:11.273 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:11.293 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:41:16.737 +05:45 [INF] HTTP GET /index.html started. TraceId: b189bdb2-75dd-4448-ae4a-8361efd4c70b, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31E9:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJE75M31E9","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:41:16.924 +05:45 [INF] HTTP GET /index.html completed. TraceId: b189bdb2-75dd-4448-ae4a-8361efd4c70b, Status: 200, Duration: 200ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31E9:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJE75M31E9","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:41:17.048 +05:45 [INF] HTTP GET /index.js started. TraceId: 7c999a58-29e5-4a6b-ac3c-aaff8bd6e29c, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EA:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJE75M31EA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:41:17.103 +05:45 [INF] HTTP GET /index.js completed. TraceId: 7c999a58-29e5-4a6b-ac3c-aaff8bd6e29c, Status: 200, Duration: 56ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EA:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJE75M31EA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:41:19.146 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 0e3785a9-5a53-40fa-8237-9e457836f821, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EA:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJE75M31EA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 12:41:19.247 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 0e3785a9-5a53-40fa-8237-9e457836f821, Status: 200, Duration: 101ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EA:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJE75M31EA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 12:41:26.901 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: d55bb280-c3ab-459e-9a45-ae8b6a6b12a8, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 12:41:26.953 +05:45 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJJE75M31EB:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 12:41:27.055 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJE75M31EB:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 12:41:27.125 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: d55bb280-c3ab-459e-9a45-ae8b6a6b12a8, Status: 401, Duration: 223ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 12:42:16.178 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: f5576927-cecf-4cfb-83a8-d9beec1a89fa, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 12:42:16.203 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJE75M31EB:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 12:42:16.217 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: f5576927-cecf-4cfb-83a8-d9beec1a89fa, Status: 401, Duration: 37ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 12:42:27.400 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 5f7f3b6a-fe52-4008-b0fa-9c8894f18168, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000003","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:42:27.416 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJE75M31EB:00000003","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:42:27.430 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 5f7f3b6a-fe52-4008-b0fa-9c8894f18168, Status: 401, Duration: 30ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000003","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 12:43:59.604 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 44e84eb4-0ba0-41dc-9160-16d8fbda68fc, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000004","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:43:59.622 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJE75M31EB:00000004","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:43:59.635 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 44e84eb4-0ba0-41dc-9160-16d8fbda68fc, Status: 401, Duration: 31ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000004","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:44:14.355 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 6c6552ee-f65d-4dde-ae20-8a776a9ce8d1, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000005","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:44:14.392 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJE75M31EB:00000005","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:44:14.411 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 6c6552ee-f65d-4dde-ae20-8a776a9ce8d1, Status: 401, Duration: 56ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000005","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:44:15.526 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: e1faab49-f0e8-4f78-87b1-e67d8c4c3687, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000006","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:44:15.548 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJE75M31EB:00000006","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:44:15.562 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: e1faab49-f0e8-4f78-87b1-e67d8c4c3687, Status: 401, Duration: 35ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJE75M31EB:00000006","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJE75M31EB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":18}
+2026-02-24 12:58:10.339 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:11.667 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:11.687 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:12.237 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:12.797 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:12.816 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:12.837 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:12.855 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 12:58:17.054 +05:45 [INF] HTTP GET /index.html started. TraceId: 3f0344fe-1def-4df0-8845-51246988f341, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN4:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJEGLVPSN4","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 12:58:17.302 +05:45 [INF] HTTP GET /index.html completed. TraceId: 3f0344fe-1def-4df0-8845-51246988f341, Status: 200, Duration: 269ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN4:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJEGLVPSN4","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 12:58:17.489 +05:45 [INF] HTTP GET /index.js started. TraceId: 726997f1-f045-45cf-96dc-dfc0b92b414a, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN5:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJEGLVPSN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 12:58:17.577 +05:45 [INF] HTTP GET /index.js completed. TraceId: 726997f1-f045-45cf-96dc-dfc0b92b414a, Status: 200, Duration: 88ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN5:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJEGLVPSN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 12:58:18.204 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 945fdbc4-82ec-45ac-bf97-397727eb24e6, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN5:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJEGLVPSN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 12:58:18.315 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 945fdbc4-82ec-45ac-bf97-397727eb24e6, Status: 200, Duration: 110ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN5:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJEGLVPSN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 12:58:55.920 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 16c6ff66-0890-4894-b6c8-d288df15e058, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN6:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN6","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":16}
+2026-02-24 12:58:55.940 +05:45 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJJEGLVPSN6:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN6","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":16}
+2026-02-24 12:58:55.993 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJEGLVPSN6:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN6","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":16}
+2026-02-24 12:58:56.022 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 16c6ff66-0890-4894-b6c8-d288df15e058, Status: 401, Duration: 102ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN6:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN6","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":16}
+2026-02-24 13:05:05.982 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: e255c988-8354-4708-8aa6-41f4444a68d9, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN7:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":30}
+2026-02-24 13:05:06.008 +05:45 [WRN] API Key missing from request. Path: /WeatherForecast, IP: ::1 {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJEGLVPSN7:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":30}
+2026-02-24 13:05:06.025 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: e255c988-8354-4708-8aa6-41f4444a68d9, Status: 401, Duration: 43ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN7:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":30}
+2026-02-24 13:05:39.688 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 201364db-3aa6-4865-bad6-8953eaaa7d13, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN7:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":26}
+2026-02-24 13:05:39.706 +05:45 [DBG] Valid API Key provided for /WeatherForecast {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJEGLVPSN7:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":26}
+2026-02-24 13:05:45.102 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 201364db-3aa6-4865-bad6-8953eaaa7d13, Status: 200, Duration: 5413ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN7:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":26}
+2026-02-24 13:05:45.142 +05:45 [WRN] Slow request detected. GET /WeatherForecast took 5413ms. TraceId: 201364db-3aa6-4865-bad6-8953eaaa7d13 {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJEGLVPSN7:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJEGLVPSN7","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":26}
+2026-02-24 13:06:38.085 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:39.000 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:39.021 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:39.607 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:40.153 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:40.171 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:40.188 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:40.211 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:06:43.970 +05:45 [INF] HTTP GET /index.html started. TraceId: 02f68dd5-7f63-49b1-9bf7-87a20c678079, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7T:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJELD92M7T","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:06:44.175 +05:45 [INF] HTTP GET /index.html completed. TraceId: 02f68dd5-7f63-49b1-9bf7-87a20c678079, Status: 200, Duration: 221ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7T:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJELD92M7T","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:06:44.299 +05:45 [INF] HTTP GET /index.js started. TraceId: 29494e71-6e45-4a3a-90bc-53f50caac442, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7S:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJELD92M7S","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:06:44.346 +05:45 [INF] HTTP GET /index.js completed. TraceId: 29494e71-6e45-4a3a-90bc-53f50caac442, Status: 200, Duration: 47ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7S:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJELD92M7S","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:06:46.899 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 5bfca8ed-060c-43e1-8771-8f8a4850c034, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7S:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJELD92M7S","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:06:46.979 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 5bfca8ed-060c-43e1-8771-8f8a4850c034, Status: 200, Duration: 80ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7S:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJELD92M7S","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:07:38.858 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 40171b53-7b27-47ae-9186-3b603b62bcb8, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7U:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 13:07:38.905 +05:45 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJJELD92M7U:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 13:07:39.013 +05:45 [DBG] Valid API Key provided for /WeatherForecast {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJELD92M7U:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 13:07:39.216 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 40171b53-7b27-47ae-9186-3b603b62bcb8, Status: 401, Duration: 358ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7U:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 13:10:05.564 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: a382492f-e2f0-4d31-bc54-6f2a7f7beea3, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7U:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":20}
+2026-02-24 13:10:05.585 +05:45 [DBG] Valid API Key provided for /WeatherForecast {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJELD92M7U:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":20}
+2026-02-24 13:10:05.683 +05:45 [DBG] JWT token validated for user: 1 {"RequestId":"0HNJJELD92M7U:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":20}
+2026-02-24 13:10:05.729 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: a382492f-e2f0-4d31-bc54-6f2a7f7beea3, Status: 200, Duration: 165ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJELD92M7U:00000002","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJELD92M7U","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":20}
+2026-02-24 13:17:28.619 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:29.541 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:29.561 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:30.175 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:30.711 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:30.732 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:30.752 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:30.773 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 13:17:34.263 +05:45 [INF] HTTP GET /index.html started. TraceId: 7b4821e1-12b9-4e0c-b3c3-ede6f1bb0ca8, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBK:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJERF17IBK","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 13:17:34.517 +05:45 [INF] HTTP GET /index.html completed. TraceId: 7b4821e1-12b9-4e0c-b3c3-ede6f1bb0ca8, Status: 200, Duration: 271ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBK:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJERF17IBK","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 13:17:34.635 +05:45 [INF] HTTP GET /index.js started. TraceId: 473e75f5-aac8-4df1-94ec-e114b28ce61d, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBL:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJERF17IBL","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:17:34.683 +05:45 [INF] HTTP GET /index.js completed. TraceId: 473e75f5-aac8-4df1-94ec-e114b28ce61d, Status: 200, Duration: 48ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBL:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJERF17IBL","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 13:17:38.740 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 50464848-4081-4e51-b289-26ee14883352, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBL:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJERF17IBL","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 13:17:38.897 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 50464848-4081-4e51-b289-26ee14883352, Status: 200, Duration: 157ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBL:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJERF17IBL","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 13:20:35.074 +05:45 [INF] HTTP GET /WeatherForecast started. TraceId: 2623a298-b65e-46d4-a3fd-a90696147049, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBM:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJERF17IBM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":15}
+2026-02-24 13:20:35.119 +05:45 [WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJJERF17IBM:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJERF17IBM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":15}
+2026-02-24 13:20:35.231 +05:45 [DBG] Valid API Key provided for /WeatherForecast {"SourceContext":"Common.Middleware.ApiKeyMiddleware","RequestId":"0HNJJERF17IBM:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJERF17IBM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":15}
+2026-02-24 13:20:35.581 +05:45 [DBG] JWT token validated for user: 1 {"RequestId":"0HNJJERF17IBM:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJERF17IBM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":15}
+2026-02-24 13:20:35.706 +05:45 [INF] HTTP GET /WeatherForecast completed. TraceId: 2623a298-b65e-46d4-a3fd-a90696147049, Status: 200, Duration: 631ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJERF17IBM:00000001","RequestPath":"/WeatherForecast","ConnectionId":"0HNJJERF17IBM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":15}
+2026-02-24 17:01:48.149 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:49.821 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:49.841 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:50.609 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:50.830 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:50.853 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:50.876 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:50.901 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:01:55.976 +05:45 [INF] HTTP GET /index.html started. TraceId: d6763b36-6e30-4279-9fac-4b16e755efb9, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIOQK6LN4:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJIOQK6LN4","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 17:01:56.187 +05:45 [INF] HTTP GET /index.html completed. TraceId: d6763b36-6e30-4279-9fac-4b16e755efb9, Status: 200, Duration: 224ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIOQK6LN4:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJIOQK6LN4","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 17:01:56.318 +05:45 [INF] HTTP GET /index.js started. TraceId: 44ac055f-4fd8-4f95-aea8-916c534dee5b, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIOQK6LN5:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJIOQK6LN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 17:01:56.409 +05:45 [INF] HTTP GET /index.js completed. TraceId: 44ac055f-4fd8-4f95-aea8-916c534dee5b, Status: 200, Duration: 93ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIOQK6LN5:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJIOQK6LN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 17:01:57.016 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 4d48db1c-a10e-46d8-b96a-483a89185c80, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIOQK6LN5:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJIOQK6LN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 17:01:57.122 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 4d48db1c-a10e-46d8-b96a-483a89185c80, Status: 200, Duration: 105ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIOQK6LN5:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJIOQK6LN5","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 17:07:34.865 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:36.366 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:36.388 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:37.012 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:37.570 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:37.587 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:37.605 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:37.624 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:07:42.030 +05:45 [INF] HTTP GET /index.html started. TraceId: 7edfe362-3585-4fa6-8891-34f4929a8df3, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIS1TJBTB:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJIS1TJBTB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:07:42.692 +05:45 [INF] HTTP GET /index.html completed. TraceId: 7edfe362-3585-4fa6-8891-34f4929a8df3, Status: 200, Duration: 692ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIS1TJBTB:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJIS1TJBTB","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:07:42.920 +05:45 [INF] HTTP GET /index.js started. TraceId: e8da81d8-3fa3-446e-b05e-4779d9fe1a09, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIS1TJBTA:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJIS1TJBTA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 17:07:43.082 +05:45 [INF] HTTP GET /index.js completed. TraceId: e8da81d8-3fa3-446e-b05e-4779d9fe1a09, Status: 200, Duration: 161ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIS1TJBTA:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJIS1TJBTA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+2026-02-24 17:07:43.303 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: da003411-2af7-4e1d-9daa-07043aefb514, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIS1TJBTA:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJIS1TJBTA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:07:43.401 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: da003411-2af7-4e1d-9daa-07043aefb514, Status: 200, Duration: 98ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJIS1TJBTA:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJIS1TJBTA","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:08:45.130 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:46.226 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:46.249 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:47.174 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:47.455 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:47.490 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:47.511 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:47.543 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 17:08:52.390 +05:45 [INF] HTTP GET /index.html started. TraceId: 0a174c6b-2db9-47cc-bc88-704e67a4d019, IP: 127.0.0.1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJISMNPKUL:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJISMNPKUL","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 17:08:52.933 +05:45 [INF] HTTP GET /index.html completed. TraceId: 0a174c6b-2db9-47cc-bc88-704e67a4d019, Status: 200, Duration: 567ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJISMNPKUL:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJISMNPKUL","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 17:08:53.127 +05:45 [INF] HTTP GET /index.js started. TraceId: e02423a4-f291-46b9-8b07-53f6d76260e6, IP: 127.0.0.1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJISMNPKUK:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJISMNPKUK","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:08:53.369 +05:45 [INF] HTTP GET /index.js completed. TraceId: e02423a4-f291-46b9-8b07-53f6d76260e6, Status: 200, Duration: 242ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJISMNPKUK:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJISMNPKUK","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:08:54.043 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 1896f68d-510f-4ad2-8bec-7e5799b8560d, IP: 127.0.0.1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJISMNPKUK:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJISMNPKUK","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 17:08:54.102 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 1896f68d-510f-4ad2-8bec-7e5799b8560d, Status: 200, Duration: 59ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJISMNPKUK:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJISMNPKUK","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":9}
+2026-02-24 22:40:12.796 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:14.278 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:14.297 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:15.090 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:15.638 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:15.658 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:15.677 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:15.697 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:40:20.116 +05:45 [INF] HTTP GET /index.html started. TraceId: 31c58c6a-aaea-44aa-8b46-c9dc73ba990d, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOLTPQTLN:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJOLTPQTLN","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 22:40:20.416 +05:45 [INF] HTTP GET /index.html completed. TraceId: 31c58c6a-aaea-44aa-8b46-c9dc73ba990d, Status: 200, Duration: 321ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOLTPQTLN:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJOLTPQTLN","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":11}
+2026-02-24 22:40:20.583 +05:45 [INF] HTTP GET /index.js started. TraceId: 728c5953-d6ba-490e-bd73-837b5dd73181, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOLTPQTLM:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJOLTPQTLM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 22:40:20.683 +05:45 [INF] HTTP GET /index.js completed. TraceId: 728c5953-d6ba-490e-bd73-837b5dd73181, Status: 200, Duration: 100ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOLTPQTLM:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJOLTPQTLM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 22:40:21.959 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: e3903df6-e890-4670-aa11-9a7ded2e2206, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOLTPQTLM:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJOLTPQTLM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 22:40:22.081 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: e3903df6-e890-4670-aa11-9a7ded2e2206, Status: 200, Duration: 121ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOLTPQTLM:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJOLTPQTLM","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 22:50:33.510 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:34.483 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:34.503 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:35.252 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:35.787 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:35.804 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:35.821 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:35.839 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:50:40.419 +05:45 [INF] HTTP GET /index.html started. TraceId: 7a13d33a-6dea-40e6-90b1-2f72277389e3, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJORMKAM85:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJORMKAM85","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 22:50:40.611 +05:45 [INF] HTTP GET /index.html completed. TraceId: 7a13d33a-6dea-40e6-90b1-2f72277389e3, Status: 200, Duration: 205ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJORMKAM85:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJORMKAM85","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 22:50:40.745 +05:45 [INF] HTTP GET /index.js started. TraceId: f2f6614a-9d1d-40b9-b732-ecfbab53e72c, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJORMKAM84:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJORMKAM84","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:50:40.839 +05:45 [INF] HTTP GET /index.js completed. TraceId: f2f6614a-9d1d-40b9-b732-ecfbab53e72c, Status: 200, Duration: 94ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJORMKAM84:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJORMKAM84","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:50:42.557 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 0e2260f4-baf8-4629-a1fe-e231fefa90ee, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJORMKAM84:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJORMKAM84","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 22:50:42.783 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 0e2260f4-baf8-4629-a1fe-e231fefa90ee, Status: 200, Duration: 225ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJORMKAM84:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJORMKAM84","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 22:55:00.295 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:01.255 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:01.276 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:01.938 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:02.476 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:02.497 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:02.517 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:02.538 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 22:55:06.341 +05:45 [INF] HTTP GET /index.html started. TraceId: ebf28384-57ea-4e63-8051-70296d9718c3, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOU65S86J:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJOU65S86J","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:55:06.604 +05:45 [INF] HTTP GET /index.html completed. TraceId: ebf28384-57ea-4e63-8051-70296d9718c3, Status: 200, Duration: 276ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOU65S86J:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJOU65S86J","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:55:06.764 +05:45 [INF] HTTP GET /index.js started. TraceId: dd9be06c-0539-4d18-ae8b-34e4dad0c3da, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOU65S86I:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJOU65S86I","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:55:06.875 +05:45 [INF] HTTP GET /index.js completed. TraceId: dd9be06c-0539-4d18-ae8b-34e4dad0c3da, Status: 200, Duration: 110ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOU65S86I:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJOU65S86I","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:55:07.665 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 4f68b3a6-dec1-4b67-b1d6-e2026e417242, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOU65S86I:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJOU65S86I","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 22:55:07.759 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 4f68b3a6-dec1-4b67-b1d6-e2026e417242, Status: 200, Duration: 94ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJOU65S86I:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJOU65S86I","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+2026-02-24 23:22:52.844 +05:45 [INF] Starting MyWallet UserServiceAPI... {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.231 +05:45 [INF] MyWallet UserServiceAPI started successfully {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.238 +05:45 [INF] Environment: Development {"Application":"MyWallet.UserServiceAPI","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.566 +05:45 [INF] Now listening on: http://localhost:7257 {"EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.653 +05:45 [INF] Application started. Press Ctrl+C to shut down. {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.663 +05:45 [INF] Hosting environment: Development {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.674 +05:45 [INF] Content root path: C:\Users\Yadav\Desktop\EnhancedFramework\UserServiceAPI {"SourceContext":"Microsoft.Hosting.Lifetime","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:53.684 +05:45 [INF] Listening on: http://localhost:7257 {"Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":2}
+2026-02-24 23:22:55.342 +05:45 [INF] HTTP GET /index.html started. TraceId: 2a44b2c9-0a3d-4239-8080-706ef757c869, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PF:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJPDO7I6PF","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 23:22:55.449 +05:45 [INF] HTTP GET /index.html completed. TraceId: 2a44b2c9-0a3d-4239-8080-706ef757c869, Status: 200, Duration: 117ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PF:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJPDO7I6PF","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":12}
+2026-02-24 23:22:55.521 +05:45 [INF] HTTP GET /index.js started. TraceId: 2d0d9f62-40be-4d10-bc21-79c40bcfce18, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PG:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJPDO7I6PG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:22:55.558 +05:45 [INF] HTTP GET /index.js completed. TraceId: 2d0d9f62-40be-4d10-bc21-79c40bcfce18, Status: 200, Duration: 37ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PG:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJPDO7I6PG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:22:56.239 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 18691791-f4e8-49c1-81d6-982beeb52911, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PG:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJPDO7I6PG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 23:22:56.607 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 18691791-f4e8-49c1-81d6-982beeb52911, Status: 200, Duration: 368ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PG:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJPDO7I6PG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":5}
+2026-02-24 23:30:43.110 +05:45 [INF] HTTP GET /index.html started. TraceId: f939cc5c-1c5f-444a-8c05-6044e76e0955, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PH:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJPDO7I6PH","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:30:43.127 +05:45 [INF] HTTP GET /index.html completed. TraceId: f939cc5c-1c5f-444a-8c05-6044e76e0955, Status: 200, Duration: 16ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PH:00000001","RequestPath":"/index.html","ConnectionId":"0HNJJPDO7I6PH","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:30:43.160 +05:45 [INF] HTTP GET /index.js started. TraceId: 7564a692-eb92-45a6-bc28-5abc41e4f195, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PI:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJPDO7I6PI","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:30:43.185 +05:45 [INF] HTTP GET /index.js completed. TraceId: 7564a692-eb92-45a6-bc28-5abc41e4f195, Status: 200, Duration: 25ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PI:00000001","RequestPath":"/index.js","ConnectionId":"0HNJJPDO7I6PI","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:30:43.293 +05:45 [INF] HTTP GET /swagger/v1/swagger.json started. TraceId: 77d59c6f-9083-4eda-aee8-c42cd6a024fc, IP: ::1, User: Anonymous {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PI:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJPDO7I6PI","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}
+2026-02-24 23:30:43.313 +05:45 [INF] HTTP GET /swagger/v1/swagger.json completed. TraceId: 77d59c6f-9083-4eda-aee8-c42cd6a024fc, Status: 200, Duration: 20ms {"SourceContext":"Common.Middleware.RequestLoggingMiddleware","RequestId":"0HNJJPDO7I6PI:00000002","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJJPDO7I6PI","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":13}

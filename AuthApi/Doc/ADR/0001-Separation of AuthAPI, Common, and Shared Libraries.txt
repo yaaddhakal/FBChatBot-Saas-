@@ -1,0 +1,25 @@
+Architecture Decision Record (ADR)
+Title: Separation of AuthAPI, Common, and Shared Libraries
+Date: February 16, 2026
+Status: Accepted
+Context
+We are building a microservices‑based SaaS platform. Authentication must be centralized, while other services (wallet, transactions, reporting, etc.) should remain independent. Reusable components like middleware, models, and utilities should not be duplicated across services.
+Decision
+- AuthAPI will be responsible only for authentication:
+- Login, issue JWTs, refresh tokens, logout.
+- No business logic or reporting.
+- Common Library will contain cross‑cutting concerns:
+- Authentication helpers (JWT service, password hashing).
+- Middleware (exception handling, request logging, API key enforcement).
+- Core models (UserViewModel, ApiResponse, JwtSettings).
+- Repository interfaces for auth‑related data.
+- Shared Library will contain broader reusable components:
+- Reporting utilities.
+- DTOs for inter‑service communication.
+- Domain‑agnostic helpers (date/time, file handling, telemetry).
+- Used by business APIs, independent of AuthAPI.
+Consequences
+- AuthAPI stays lean and focused only on authentication.
+- Common ensures consistent security, error handling, and logging across all services.
+- Shared provides utilities for business microservices without dragging in authentication logic.
+- Future projects can reuse AuthAPI + Common for pure authentication needs, or Common + Shared for business APIs.

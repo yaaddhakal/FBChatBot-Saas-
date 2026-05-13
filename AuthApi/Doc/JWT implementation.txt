@@ -1,0 +1,106 @@
+End-to-End JWT + Authorization Flow
+- Login (AuthAPI)
+- User provides credentials.
+- If valid, AuthAPI issues a JWT token with claims (UserId, Role, CompanyId, etc.).
+- The token is sent to the client along with an ApiResponse.
+- Client Calls Another API
+- Client includes the JWT in the Authorization: Bearer {token} header.
+- The API pipeline runs through middleware.
+- JWT Authentication Middleware (app.UseAuthentication())
+- Validates the token (signature, issuer, audience, expiry).
+- If valid → extracts claims and sets them into HttpContext.User.
+- If invalid → request is rejected (401 Unauthorized).
+- Authorization Middleware (app.UseAuthorization())
+- Reads [Authorize] attributes on controllers/actions.
+- Compares required roles/claims against HttpContext.User.
+- If match → request continues.
+- If not → framework returns 403 Forbidden.
+- Controller Execution
+- Your controller can read claims directly from User (e.g., User.FindFirst("role")).
+- Or rely on [Authorize(Roles = "Admin")] to enforce role checks automatically.
+- Token Expiry
+- If the JWT is expired, the client must call RefreshToken endpoint in AuthAPI.
+- AuthAPI validates the refresh token and issues a new JWT.
+- Client retries the API call with the new token.
+
+✅ Key Takeaways
+- JWT issuance happens only in AuthAPI.
+- JWT validation + claims extraction happens in middleware (app.UseAuthentication()).
+- Authorization checks happen in middleware (app.UseAuthorization()).
+- Controllers either read claims or rely on [Authorize] attributes.
+- Refresh flow ensures expired tokens don’t block the client permanently.
+
+👉 So yes, if you create a new API project, you must add both app.UseAuthentication() and app.UseAuthorization() in its Program.cs. That way, the middleware pipeline is consistent across all services.
+
+
+Checklist for Adding a New API
+1. Add NuGet Packages
+- Microsoft.AspNetCore.Authentication.JwtBearer
+- Microsoft.IdentityModel.Tokens
+2. Configure JwtSettings
+- In appsettings.json of the new API:
+"JwtSettings": {
+  "Issuer": "YourIssuer",
+  "Audience": "YourAudience",
+  "SecretKey": "YourSuperSecretKey"
+}
+- Keep these values consistent with AuthAPI (so tokens issued there validate here).
+3. Register Authentication in Program.cs
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+        ValidAudience = builder.Configuration["JwtSettings:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]))
+    };
+});
+
+builder.Services.AddAuthorization();
+
+
+4. Add Middleware to Pipeline
+app.UseAuthentication();   // Step 3: JWT Middleware
+app.UseAuthorization();    // Step 4: Authorization Middleware
+
+
+5. Protect Controllers
+- Use [Authorize] for endpoints requiring authentication.
+- Use [Authorize(Roles = "Admin")] for role‑based protection.
+- Example:
+[HttpGet("secure")]
+[Authorize]
+public IActionResult SecureEndpoint()
+{
+    return Ok("You are authenticated!");
+}
+
+
+6. Handle Token Expiry
+- If JWT expires, client must call RefreshToken in AuthAPI.
+- AuthAPI issues a new JWT → client retries the request with the new token.
+7. Use Common Helpers
+- Reference Common project for:
+- ApiResponse
+- ClaimsHelper (to extract claims like UserId, Role, CompanyId)
+- ApiKeyMiddleware if needed
+
+✅ Benefits
+- Every API validates tokens consistently.
+- Role‑based authorization works out of the box.
+- Middleware order is correct (authentication before authorization).
+- Centralized configuration avoids duplication.
+
+👉 With this checklist, you can spin up new APIs quickly and safely, knowing JWT + claims enforcement will work the same everywhere.
+Would you like me to also draft a template Program.cs file you can copy‑paste into any new API project, so you don’t have to rebuild the setup each time?

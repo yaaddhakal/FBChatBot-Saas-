@@ -1,0 +1,288 @@
+2026-02-18 14:47:58.535 +05:45 [ERR] Unhandled exception. TraceId: 8a6f44c5-a3cf-41b0-9972-fe24b3635aa4, Path: /api/EnhancedAuth/login, Method: POST {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJEPHH6USNI:00000001","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'dbo.tbl_Users1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at AuthAPI.DbService.DBService.GetAsync[T](String command, Object parms, CommandType commandType) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\DbService\DBService .cs:line 33
+   at AuthAPI.Repositories.UserRepository.ValidateUserAsync(String username, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\UserRepository .cs:line 40
+   at AuthAPI.Repositories.LogInRepository.login(String userName, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\LogInRepository.cs:line 30
+   at AuthAPI.Controllers.EnhancedAuthController.Login(LoginRequestModel request) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Controllers\EnhancedAuthController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Common.Middleware.EnhancedApiKeyMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\EnhancedApiKeyMiddleware.cs:line 83
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+ClientConnectionId:533a2e62-b1f6-489c-b2d5-687bec266931
+Error Number:208,State:1,Class:16
+2026-02-18 14:47:59.394 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000001","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:47:59.459 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000001","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:47:59.520 +05:45 [ERR] Connection id "0HNJEPHH6USNI", Request id "0HNJEPHH6USNI:00000001": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJEPHH6USNI:00000001","RequestPath":"/api/EnhancedAuth/login","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2026-02-18 14:49:13.718 +05:45 [ERR] Unhandled exception. TraceId: 7d60873b-1a97-4645-b30e-648c7d96bd0a, Path: /api/EnhancedAuth/login, Method: POST {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJEPHH6USNI:00000003","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'dbo.tbl_Users1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at AuthAPI.DbService.DBService.GetAsync[T](String command, Object parms, CommandType commandType) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\DbService\DBService .cs:line 33
+   at AuthAPI.Repositories.UserRepository.ValidateUserAsync(String username, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\UserRepository .cs:line 40
+   at AuthAPI.Repositories.LogInRepository.login(String userName, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\LogInRepository.cs:line 30
+   at AuthAPI.Controllers.EnhancedAuthController.Login(LoginRequestModel request) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Controllers\EnhancedAuthController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Common.Middleware.EnhancedApiKeyMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\EnhancedApiKeyMiddleware.cs:line 83
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+ClientConnectionId:533a2e62-b1f6-489c-b2d5-687bec266931
+Error Number:208,State:1,Class:16
+2026-02-18 14:49:14.169 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000003","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:49:14.223 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000003","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:49:14.274 +05:45 [ERR] Connection id "0HNJEPHH6USNI", Request id "0HNJEPHH6USNI:00000003": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJEPHH6USNI:00000003","RequestPath":"/api/EnhancedAuth/login","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2026-02-18 14:50:18.354 +05:45 [ERR] Unhandled exception. TraceId: 4d39918f-f3aa-4488-ae96-8ca263762f2a, Path: /api/EnhancedAuth/login, Method: POST {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJEPHH6USNI:00000005","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":23}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'dbo.tbl_Users1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at AuthAPI.DbService.DBService.GetAsync[T](String command, Object parms, CommandType commandType) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\DbService\DBService .cs:line 33
+   at AuthAPI.Repositories.UserRepository.ValidateUserAsync(String username, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\UserRepository .cs:line 40
+   at AuthAPI.Repositories.LogInRepository.login(String userName, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\LogInRepository.cs:line 30
+   at AuthAPI.Controllers.EnhancedAuthController.Login(LoginRequestModel request) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Controllers\EnhancedAuthController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Common.Middleware.EnhancedApiKeyMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\EnhancedApiKeyMiddleware.cs:line 83
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+ClientConnectionId:533a2e62-b1f6-489c-b2d5-687bec266931
+Error Number:208,State:1,Class:16
+2026-02-18 14:50:18.840 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000005","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":23}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:50:18.897 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000005","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":23}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:50:18.953 +05:45 [ERR] Connection id "0HNJEPHH6USNI", Request id "0HNJEPHH6USNI:00000005": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJEPHH6USNI:00000005","RequestPath":"/api/EnhancedAuth/login","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":23}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2026-02-18 14:51:03.990 +05:45 [ERR] Unhandled exception. TraceId: d673572b-7640-451b-9364-d02fdaa79f7c, Path: /api/EnhancedAuth/login, Method: POST {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJEPHH6USNI:00000007","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'dbo.tbl_Users1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at AuthAPI.DbService.DBService.GetAsync[T](String command, Object parms, CommandType commandType) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\DbService\DBService .cs:line 33
+   at AuthAPI.Repositories.UserRepository.ValidateUserAsync(String username, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\UserRepository .cs:line 40
+   at AuthAPI.Repositories.LogInRepository.login(String userName, String password) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Repositories\LogInRepository.cs:line 30
+   at AuthAPI.Controllers.EnhancedAuthController.Login(LoginRequestModel request) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\EnhancedFramework\Controllers\EnhancedAuthController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Common.Middleware.EnhancedApiKeyMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\EnhancedApiKeyMiddleware.cs:line 83
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+ClientConnectionId:533a2e62-b1f6-489c-b2d5-687bec266931
+Error Number:208,State:1,Class:16
+2026-02-18 14:51:04.480 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000007","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:51:04.533 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJEPHH6USNI:00000007","RequestPath":"/api/EnhancedAuth/login","ConnectionId":"0HNJEPHH6USNI","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-18 14:51:04.588 +05:45 [ERR] Connection id "0HNJEPHH6USNI", Request id "0HNJEPHH6USNI:00000007": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJEPHH6USNI:00000007","RequestPath":"/api/EnhancedAuth/login","Application":"MyWallet.AuthAPI","Environment":"Development","MachineName":"YAAD","ThreadId":3}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in D:\backUp\EnhancedFramework_Fixed\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)

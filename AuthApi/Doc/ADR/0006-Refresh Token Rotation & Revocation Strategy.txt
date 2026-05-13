@@ -1,0 +1,47 @@
+ADR: Refresh Token Rotation & Revocation Strategy
+Context
+We needed a secure, maintainable way to handle refresh tokens in our SaaS authentication flow. Options included:
+- JWT‑based refresh tokens with embedded claims (no DB lookup).
+- Opaque DB‑backed refresh tokens with rotation and revocation.
+We chose the classic DB‑backed approach to ensure auditability, revocation, and consistency with enterprise security practices.
+
+Decision
+- Refresh tokens are opaque strings (GUID or secure random bytes).
+- Stored in DB (tbl_RefreshTokens) with fields: TokenId, UserId, Token, ExpiresAt, CreatedAt, IsRevoked, RevokedAt.
+- Rotation enforced: every refresh request revokes the old token and issues a new one in a single transaction.
+- Revocation strategy:
+- Default: revoke only the specific token used (isSingleInactive = true).
+- Optionally: revoke all active tokens for a user (isSingleInactive = false).
+- Access tokens remain JWTs with claims (UserId, Username, RoleName).
+- Consistency: both login and refresh endpoints return the same TokenResponseModel.
+
+Consequences
+- Security: prevents replay attacks; only one valid refresh token per user.
+- Auditability: DB tracks token lifecycle (CreatedAt, RevokedAt).
+- Maintainability: simple contract — client only sees opaque string.
+- Performance: requires DB hit per refresh, but acceptable for SaaS scale.
+- Flexibility: can revoke one or all tokens depending on business rules.
+
+Status
+Accepted — implemented and tested. Login and refresh flows are consistent, secure, and working fine.
+
+This ADR makes it clear why you chose the DB‑backed rotation model, how it works, and what trade‑offs you accepted. It’s a solid foundation for future developers (or even yourself months later) to understand the reasoning.
+
+Client                API Controller           TokenRepository/DB          UserRepository
+  |                          |                          |                          |
+  |--- RefreshRequestDto --->|                          |                          |
+  |                          |--- GetOldRefreshToken -->|                          |
+  |                          |<-- RefreshTokenModel ----|                          |
+  |                          |                          |                          |
+  |                          |--- Validate (revoked/expired?) -------------------->|
+  |                          |                          |                          |
+  |                          |--- GetUserByIdAsync ------------------------------->|
+  |                          |<-- UserModel ---------------------------------------|
+  |                          |                          |                          |
+  |                          |--- IssueRefreshTokenAsync (revoke old + insert new) |
+  |                          |                          |                          |
+  |                          |<-- NewRefreshToken ---------------------------------|
+  |                          |                          |                          |
+  |                          |--- GenerateJWTToken(user)                           |
+  |                          |                          |                          |
+  |<-- TokenResponseModel ---|                          |                          |

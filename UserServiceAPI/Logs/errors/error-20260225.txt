@@ -1,0 +1,204 @@
+2026-02-25 13:51:42.399 +05:45 [ERR] Unhandled exception. TraceId: c3384214-adbe-4e2a-a1c1-9d3576a6bf3a, Path: /swagger/v1/swagger.json, Method: GET {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJK8J5HK4AD:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8J5HK4AD","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - UserServiceAPI.Controllers.UserController.GetUserList (UserServiceAPI). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+2026-02-25 13:51:43.068 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8J5HK4AD:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8J5HK4AD","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:51:43.479 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8J5HK4AD:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8J5HK4AD","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:51:43.812 +05:45 [ERR] Connection id "0HNJK8J5HK4AD", Request id "0HNJK8J5HK4AD:00000004": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJK8J5HK4AD:00000004","RequestPath":"/swagger/v1/swagger.json","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2026-02-25 13:53:52.420 +05:45 [ERR] Unhandled exception. TraceId: b3872058-8592-4164-a0c1-b348e335a3e1, Path: /swagger/v1/swagger.json, Method: GET {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJK8KCLHFVG:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8KCLHFVG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - UserServiceAPI.Controllers.UserController.GetUserList (UserServiceAPI). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+2026-02-25 13:53:53.164 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8KCLHFVG:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8KCLHFVG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:53:53.482 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8KCLHFVG:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8KCLHFVG","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:53:53.735 +05:45 [ERR] Connection id "0HNJK8KCLHFVG", Request id "0HNJK8KCLHFVG:00000003": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJK8KCLHFVG:00000003","RequestPath":"/swagger/v1/swagger.json","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":8}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2026-02-25 13:54:14.636 +05:45 [ERR] Unhandled exception. TraceId: 79064a63-005c-4881-b6bf-4d1b4fc01e30, Path: /swagger/v1/swagger.json, Method: GET {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJK8KJHKEOV:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8KJHKEOV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - UserServiceAPI.Controllers.UserController.GetUserList (UserServiceAPI). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+2026-02-25 13:54:15.428 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8KJHKEOV:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8KJHKEOV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:54:15.917 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8KJHKEOV:00000003","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8KJHKEOV","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:54:16.266 +05:45 [ERR] Connection id "0HNJK8KJHKEOV", Request id "0HNJK8KJHKEOV:00000003": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJK8KJHKEOV:00000003","RequestPath":"/swagger/v1/swagger.json","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":7}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2026-02-25 13:55:35.929 +05:45 [ERR] Unhandled exception. TraceId: 651d4f75-3cea-4742-bc4a-733204d44a47, Path: /swagger/v1/swagger.json, Method: GET {"SourceContext":"Common.Middleware.GlobalExceptionHandlerMiddleware","RequestId":"0HNJK8LBIAS2T:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8LBIAS2T","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":14}
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - UserServiceAPI.Controllers.UserController.GetUserList (UserServiceAPI). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.PrepareGenerateOperation(IGrouping`2 group)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.MoveNext()
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 45
+   at Common.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\RequestLoggingMiddleware.cs:line 57
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 33
+2026-02-25 13:55:36.631 +05:45 [ERR] An unhandled exception has occurred while executing the request. {"EventId":{"Id":1,"Name":"UnhandledException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8LBIAS2T:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8LBIAS2T","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":14}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:55:36.964 +05:45 [ERR] An exception was thrown attempting to display the error page. {"EventId":{"Id":3,"Name":"DisplayErrorPageException"},"SourceContext":"Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware","RequestId":"0HNJK8LBIAS2T:00000004","RequestPath":"/swagger/v1/swagger.json","ConnectionId":"0HNJK8LBIAS2T","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":14}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.DisplayExceptionContent(ErrorContext errorContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-02-25 13:55:37.234 +05:45 [ERR] Connection id "0HNJK8LBIAS2T", Request id "0HNJK8LBIAS2T:00000004": An unhandled exception was thrown by the application. {"EventId":{"Id":13,"Name":"ApplicationError"},"SourceContext":"Microsoft.AspNetCore.Server.Kestrel","RequestId":"0HNJK8LBIAS2T:00000004","RequestPath":"/swagger/v1/swagger.json","Application":"MyWallet.UserServiceAPI","Environment":"Development","MachineName":"YAAD","ThreadId":14}
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.MemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask`1.GetTaskForValueTaskSource(IValueTaskSource`1 t)
+--- End of stack trace from previous location ---
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 70
+   at Common.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\Yadav\Desktop\EnhancedFramework\Common\Middleware\GlobalExceptionHandlerMiddleware.cs:line 37
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)

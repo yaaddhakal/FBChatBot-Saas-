@@ -1,0 +1,103 @@
+# ADR 0001: Separation of AuthAPI, Common, and Shared Libraries
+**Date:** 2026-02-16  
+**Status:** Accepted  
+
+## Context
+We are building a microservices-based SaaS platform. Authentication must be centralized, while other services (wallet, transactions, reporting, etc.) remain independent. Reusable components like middleware, models, and utilities should not be duplicated across services.
+
+## Decision
+- **AuthAPI** → Handles login, JWT issuance, refresh, logout only.  
+- **Common** → Contains cross-cutting concerns (auth helpers, middleware, error handling, JWT service, repositories interfaces, core models).  
+- **Shared** → Contains broader reusable utilities (reporting, DTOs, helpers, telemetry) for business APIs.  
+
+## Consequences
+- AuthAPI stays lean and focused.  
+- Common ensures consistent security and error handling.  
+- Shared provides utilities without dragging in auth logic.  
+- Future projects can reuse AuthAPI + Common for pure auth, or Common + Shared for business APIs.
+
+# ADR 0002: Middleware Pipeline Order in AuthAPI
+**Date:** 2026-02-16  
+**Status:** Accepted  
+
+## Context
+Middleware order in ASP.NET Core determines security, logging, and error handling behavior. For AuthAPI, we need a pipeline that enforces security, provides observability, and ensures consistent error handling.
+
+## Decision
+Pipeline order:
+1. GlobalExceptionHandlerMiddleware  
+2. RequestLoggingMiddleware  
+3. Swagger (Development only)  
+4. HTTPS Redirection + HSTS (Production)  
+5. Routing  
+6. CORS  
+7. EnhancedApiKeyMiddleware  
+8. Authentication (JWT)  
+9. Authorization (Claims)  
+10. Controllers  
+11. Health Checks  
+12. Rate Limiting (optional, production)  
+
+## Consequences
+- Security first: API key + JWT validated before controllers.  
+- Observability: Logging + exception handling ensure visibility.  
+- Flexibility: Swagger + permissive CORS only in dev.  
+- Scalability: Rate limiting can be added later.
+
+# ADR 0003: Token Management Strategy (JWT + Refresh Tokens)
+**Date:** 2026-02-16  
+**Status:** Accepted  
+
+## Context
+JWTs are stateless and scalable but must be short-lived for security. Refresh tokens extend usability without compromising safety.
+
+## Decision
+- **Access Token (JWT)**: Short-lived (e.g., 30 min), contains claims, signed with HMAC SHA256.  
+- **Refresh Token**: Long-lived (7–30 days), random secure string, stored hashed in DB, used to obtain new JWTs.  
+- **Flow**: Login issues both → APIs validate JWT → Refresh token renews JWT → Logout invalidates refresh token.  
+
+## Consequences
+- Security: Short-lived JWT reduces risk.  
+- Usability: Refresh tokens provide seamless sessions.  
+- Scalability: Stateless JWT validation across microservices.  
+- Flexibility: Multi-device support possible with per-device refresh tokens.
+
+
+# ADR 0004: Multi-System, Multi-User Token Management
+**Date:** 2026-02-16  
+**Status:** Accepted  
+
+## Context
+Users log in from multiple devices (desktop, mobile, tablet). A single refresh token per user is insufficient.
+
+## Decision
+- Each login generates a unique refresh token tied to a DeviceId/ClientId.  
+- Multiple active tokens per user allowed.  
+- Revocation options: single-device logout or global logout.  
+- Tokens stored hashed with expiry + metadata.  
+
+## Consequences
+- Usability: Seamless multi-device sessions.  
+- Security: Compromised tokens revoked per device.  
+- Scalability: Supports enterprise scenarios.  
+- Maintainability: Clear token lifecycle management.
+
+# ADR 0005: Secure Password Storage (Hashing + Salting)
+**Date:** 2026-02-16  
+**Status:** Accepted  
+
+## Context
+Passwords must never be stored in plain text. Industry standards require hashing + salting.
+
+## Decision
+- Use PBKDF2 with SHA-256, 100,000 iterations.  
+- Each password gets a unique random salt.  
+- Store hash + salt in DB.  
+- Verification by recomputing hash with stored salt.  
+- Future flexibility: bcrypt or Argon2 if needed.  
+
+## Consequences
+- Security: Database leaks don’t expose raw passwords.  
+- Compliance: Meets OWASP/NIST standards.  
+- Maintainability: Centralized PasswordHasher utility.  
+- Performance: Iteration count balances security and speed.

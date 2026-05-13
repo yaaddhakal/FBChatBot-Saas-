@@ -1,0 +1,34 @@
+Architecture Decision Record (ADR)
+Title: Token Management Strategy (JWT + Refresh Tokens)
+Date: February 16, 2026
+Status: Accepted
+Context
+In a microservices architecture, authentication must be secure, scalable, and stateless. JWTs are widely used for stateless authentication, but they have limitations:
+- Short‑lived JWTs improve security but require frequent re‑authentication.
+- Long‑lived JWTs increase risk if compromised.
+- Users expect seamless sessions across devices without constant login prompts.
+Decision
+We will use a two‑token strategy:
+- Access Token (JWT)
+- Short‑lived (e.g., 30 minutes).
+- Contains user claims (UserId, Role, Department, CompanyId).
+- Signed with HMAC SHA256 using a secret key.
+- Used for authorization in all APIs.
+- Refresh Token
+- Long‑lived (e.g., 7–30 days).
+- Random, cryptographically secure string.
+- Stored hashed in the database with expiry and device metadata.
+- Used only to obtain new JWTs when the access token expires.
+- Can be revoked individually (logout from one device) or globally (logout everywhere).
+Flow
+- Login → AuthAPI validates credentials, issues JWT + refresh token.
+- Accessing APIs → Client sends JWT in Authorization: Bearer {token} header.
+- Token Expiry → Client uses refresh token to request a new JWT.
+- Logout → Refresh token is invalidated (single device or all devices).
+- Compromise → If a refresh token is leaked, it can be revoked without affecting other sessions.
+Consequences
+- Security: Short‑lived JWTs reduce risk of token theft.
+- Usability: Refresh tokens provide seamless user experience without frequent logins.
+- Scalability: Stateless JWT validation across microservices, no central session store needed.
+- Flexibility: Multi‑device support with per‑device refresh tokens.
+- Maintainability: Clear separation of concerns — AuthAPI issues tokens, other APIs only validate them.

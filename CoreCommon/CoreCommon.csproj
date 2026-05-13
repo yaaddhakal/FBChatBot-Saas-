@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>dotnet-Common-dcc2bed4-e870-4453-becd-c8d19b5f831c</UserSecretsId>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" />
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="Swashbuckle.AspNetCore" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+		<!-- Database -->
+		<PackageReference Include="Dapper" />
+		<PackageReference Include="Microsoft.Data.SqlClient" />
+	</ItemGroup>
+
+</Project>

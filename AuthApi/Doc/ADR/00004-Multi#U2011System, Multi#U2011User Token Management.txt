@@ -1,0 +1,29 @@
+Architecture Decision Record (ADR)
+Title: Multi‑System, Multi‑User Token Management
+Date: February 16, 2026
+Status: Accepted
+Context
+In a SaaS platform, users often log in from multiple devices (desktop, mobile, tablet) or systems simultaneously. A single refresh token per user is insufficient because:
+- It prevents concurrent sessions across devices.
+- Logging out from one device would terminate all sessions.
+- Security requires the ability to revoke tokens per device or globally.
+Decision
+We will support multi‑system, multi‑user token management by:
+- Per‑Device Refresh Tokens
+- Each login generates a unique refresh token tied to a DeviceId or ClientId.
+- Stored in the database with metadata: UserId, DeviceId, TokenHash, ExpiresAt, IsRevoked.
+- Multiple Active Tokens per User
+- A user can hold multiple refresh tokens simultaneously (e.g., one for laptop, one for phone).
+- Each token is validated independently.
+- Revocation Options
+- Single‑device logout: Invalidate one refresh token by UserId + DeviceId.
+- Global logout: Invalidate all refresh tokens for a user.
+- Security Enhancements
+- Refresh tokens stored as hashes (not plain text).
+- Expiry enforced (e.g., 7–30 days).
+- Cleanup job removes expired/revoked tokens.
+Consequences
+- Usability: Users can stay logged in across multiple devices without interference.
+- Security: Compromised tokens can be revoked per device without affecting other sessions.
+- Scalability: Supports enterprise scenarios where users access from multiple systems.
+- Maintainability: Clear token lifecycle management (issue, validate, revoke, cleanup)

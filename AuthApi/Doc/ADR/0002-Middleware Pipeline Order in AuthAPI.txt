@@ -1,0 +1,48 @@
+Architecture Decision Record (ADR)
+Title: Middleware Pipeline Order in AuthAPI
+Date: February 16, 2026
+Status: Accepted
+Context
+In ASP.NET Core, middleware order is critical. Each component intercepts requests and responses, and the sequence determines security, logging, and error handling behavior. For AuthAPI, we need a pipeline that enforces security, provides observability, and ensures consistent error handling.
+Decision
+The middleware pipeline order is defined as follows:
+- GlobalExceptionHandlerMiddleware
+- Captures all unhandled exceptions early.
+- Ensures standardized JSON error responses.
+- RequestLoggingMiddleware
+- Logs incoming requests and outgoing responses.
+- Sensitive data is masked before logging.
+- Swagger (Development only)
+- Provides API documentation and testing UI.
+- Disabled in production for security.
+- HTTPS Redirection + HSTS (Production)
+- Forces secure connections.
+- Adds strict transport security headers.
+- Routing
+- Enables endpoint routing.
+- CORS
+- Applies cross‑origin rules.
+- Development: AllowAll.
+- Production: AllowTrustedOrigins.
+- EnhancedApiKeyMiddleware
+- Validates API key before authentication.
+- Protects endpoints from unauthorized access.
+- Authentication (JWT)
+- Validates JWT tokens issued by AuthAPI.
+- Authorization (Claims)
+- Enforces role/claim‑based access control.
+- Controllers
+- Executes business logic (auth endpoints only).
+- Health Checks
+- Provides /health endpoint for monitoring.
+- Rate Limiting (Optional, Production)
+- Prevents brute force and abuse.
+Consequences
+- Security first: API key and JWT validation happen before controllers.
+- Observability: Request logging and exception handling ensure visibility.
+- Consistency: All services using Common middleware will follow the same order.
+- Flexibility: Swagger and permissive CORS only enabled in development.
+- Scalability: Rate limiting can be added later without breaking flow.
+
+👉 This ADR explains why the middleware order is the way it is. Drop it into /docs/adr/ alongside the AuthAPI/Common/Shared ADR.
+Would you like me to also draft a third ADR for token management (JWT + refresh tokens, why we use both, and how they interact)? That would complete the “auth decisions” set.
