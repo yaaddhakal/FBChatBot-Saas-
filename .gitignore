@@ -1,22 +1,45 @@
 # Visual Studio cache
 .vs/
 
-# Build output for all projects
+# Build output (all projects)
 **/bin/
 **/obj/
-**/Debug/
+***/Debug/
 **/Release/
 
 # User-specific files
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
 # Logs
 **/Logs/
 *.log
+
+# NuGet packages
+*.nupkg
+**/packages/
+# Uncomment if you don’t want to ignore package restore
+#!**/packages/build/
+
+# Publish output
+**/publish/
+**/PublishProfiles/
+
+# Test results
+*.trx
+*.coverage
+*.coveragexml
+TestResults/
 
 # Temporary files
 *.cache
 *.pdb
 *.dll
 *.exe
+
+# Other common ignores
+*.dbmdl
+*.bak
+*.sql
