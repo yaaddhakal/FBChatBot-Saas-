@@ -14,6 +14,7 @@ using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using CoreCommon.Models.ViewModels;
 namespace AuthAPI.Function.Services
 {
     public class JwtService
@@ -29,21 +30,22 @@ namespace AuthAPI.Function.Services
             _logger = logger;
         }
 
-        public string GenerateJWTToken(UserViewModel user)
+        public string GenerateJWTToken(UsersViewModel user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
-            new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserID.ToString()),
+            new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
             new Claim("role", user.RoleName),
-            new Claim("roleId", user.RoleId.ToString()),
-            new Claim("department", user.DepartmentName),
-            new Claim("departmentId", user.DepartmentId.ToString()),
-            new Claim("companyName", user.CompanyName),
-            new Claim("companyId", user.CompanyId.ToString())
+            new Claim("roleId", user.RoleID.ToString()),
+            new Claim("IndustryID", user.IndustryID.ToString()),
+            new Claim("IndustryName", user.IndustryName),
+            new Claim("TenantName", user.TenantName),
+            new Claim("TenantID", user.TenantID.ToString()),
+            new Claim("UserType", user.UserType)
         };
 
             var token = new JwtSecurityToken(

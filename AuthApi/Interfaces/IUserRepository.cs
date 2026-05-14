@@ -1,6 +1,7 @@
 ﻿
-using CoreCommon.HelperCommon;
 using AuthAPI.Models.Entites.User;
+using CoreCommon.HelperCommon;
+using CoreCommon.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace AuthAPI.Interfaces
 {
     public interface IUserRepository
     {
-        Task<ResultData<UserViewModel?>> ValidateUserAsync(string username, string password);
+        Task<ResultData<UsersViewModel?>> ValidateUserAsync(string username, string password);
         Task<ResultData<UserViewModel?>> GetUserByIdAsync(int userId);
 
     }

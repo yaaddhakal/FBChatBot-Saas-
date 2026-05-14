@@ -2,9 +2,10 @@
 using AuthAPI.Interfaces;
 using AuthAPI.Repositories;
 using CoreCommon.DbService;
-using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
 using AuthAPI.Models.Entites.User;
+using CoreCommon.HelperCommon;
+using CoreCommon.Models.ViewModels;
 using System.Data;
 
 namespace AuthAPI.Repositories
@@ -14,7 +15,7 @@ namespace AuthAPI.Repositories
         private readonly IConfiguration _configuration;
         private readonly ILogger<UserRepository> _logger; // Fixed: was ILogger<TokenRepository>
         private readonly IDbService _dbService;
-
+        //private PasswordEncryption _passwordEncryption;
         public UserRepository(IConfiguration configuration, ILogger<UserRepository> logger, IDbService dbservice)
         {
             _configuration = configuration;
@@ -22,35 +23,30 @@ namespace AuthAPI.Repositories
             _dbService = dbservice;
         }
 
-        public async Task<ResultData<UserViewModel?>> ValidateUserAsync(string username, string password)
+        public async Task<ResultData<UsersViewModel?>> ValidateUserAsync(string username, string password)
         {
-            const string sql = @"
-        SELECT u.*, r.RoleName, d.DepartmentName, c.CompanyName,r.DepartmentId
-        FROM dbo.tbl_Users u
-        INNER JOIN dbo.tbl_Company c ON u.CompanyId = c.CompanyId
-        INNER JOIN dbo.tbl_Roles r ON u.RoleId = r.RoleId
-        INNER JOIN dbo.tbl_Department d ON r.DepartmentId = d.DepartmentId
-        WHERE u.Username = @Username AND u.PasswordHash = @PasswordHash";
-
+            string hashedPassword = PasswordEncryption.HashPassword(password);
+           
+            const string sql = @"sp_UserLogin";
             var parameters = new
             {
-                Username = username,
-                PasswordHash = password // TODO: hash the password before comparing e.g. BCrypt.HashPassword(password)
+                Login = username,
+                PasswordHash = hashedPassword
             };
 
-            var result = await _dbService.GetAsync<UserViewModel>(sql, parameters, CommandType.Text);
+            var result = await _dbService.GetAsync<UsersViewModel>(sql, parameters, CommandType.StoredProcedure);
 
             if (!result.Success || result.Data == null)
             {
                 _logger.LogWarning("User validation failed for Username: {Username}", username);
-                var rResult=ResultData<UserViewModel?>.Fail(string.IsNullOrWhiteSpace( result.Error) ? "Invalid username or password":result.Error, ResultStatusCode.BadRequest);
-                var qq = ResultData<UserViewModel?>.Fail("Invalid username or password", ResultStatusCode.BadRequest);
+                var rResult=ResultData<UsersViewModel?>.Fail(string.IsNullOrWhiteSpace( result.Error) ? "Invalid username or password":result.Error, ResultStatusCode.BadRequest);
+                var qq = ResultData<UsersViewModel?>.Fail("Invalid username or password", ResultStatusCode.BadRequest);
               
                 return rResult;
             }
 
             _logger.LogInformation("User validated successfully: {Username}", username);
-            return ResultData<UserViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
+            return ResultData<UsersViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
         }
 
         public async Task<ResultData<UserViewModel?>> GetUserByIdAsync(int userId)

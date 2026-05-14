@@ -88,3 +88,4 @@ E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\refint\UserServiceAPI.dll
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.pdb
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.genruntimeconfig.cache
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\ref\UserServiceAPI.dll
+E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.sourcelink.json
