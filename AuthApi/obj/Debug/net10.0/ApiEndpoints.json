@@ -1,16 +1,6 @@
 [
   {
     "ContainingType": "AuthAPI.Controllers.AuthController",
-    "Method": "GetCurrentUser",
-    "RelativePath": "api/Auth/CurrentUserInfo",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuthAPI.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -20,54 +10,6 @@
       {
         "Name": "request",
         "Type": "AuthAPI.Models.LoginRequest.LoginRequestModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuthAPI.Controllers.AuthController",
-    "Method": "Logout",
-    "RelativePath": "api/Auth/logout",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "CoreCommon.AuthModel.RefreshToken.RefreshRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuthAPI.Controllers.AuthController",
-    "Method": "LogoutAll",
-    "RelativePath": "api/Auth/LogoutAll",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "CoreCommon.AuthModel.RefreshToken.RefreshRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AuthAPI.Controllers.AuthController",
-    "Method": "Refresh",
-    "RelativePath": "api/Auth/refresh",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "CoreCommon.AuthModel.RefreshToken.RefreshRequestDto",
         "IsRequired": true
       }
     ],

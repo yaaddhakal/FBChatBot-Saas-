@@ -1,24 +1,22 @@
-# Visual Studio cache and settings
+# Visual Studio cache
 .vs/
+
+# Build output for all projects
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+
+# User-specific files
 *.user
 *.suo
 
-# Build results
-bin/
-obj/
-Debug/
-Release/
-
-# Logs and temporary files
+# Logs
+**/Logs/
 *.log
+
+# Temporary files
 *.cache
-*.tmp
-
-# NuGet packages
-packages/
-*.nupkg
-
-# Other common files
-*.dbmdl
-*.bak
-*.swp
+*.pdb
+*.dll
+*.exe

@@ -90,3 +90,4 @@ E:\ChatBot\FBChatBot\AuthApi\obj\Debug\net10.0\refint\AuthAPI.dll
 E:\ChatBot\FBChatBot\AuthApi\obj\Debug\net10.0\AuthAPI.pdb
 E:\ChatBot\FBChatBot\AuthApi\obj\Debug\net10.0\AuthAPI.genruntimeconfig.cache
 E:\ChatBot\FBChatBot\AuthApi\obj\Debug\net10.0\ref\AuthAPI.dll
+E:\ChatBot\FBChatBot\AuthApi\obj\Debug\net10.0\AuthAPI.sourcelink.json
