@@ -59,31 +59,38 @@ namespace AuthAPI.Repositories
                 _logger.LogInformation("Refresh token saved for UserId: {UserId}, Expires: {ExpiresAt}", userId, expiresAt);
             }
 
-            return result;
+             return result;
         }
 
-        public async Task<bool> ValidateRefreshTokenAsync(int userId, string refreshToken)
-        {
-            var sql = @"
-                SELECT COUNT(1) 
-                FROM tbl_RefreshTokens 
-                WHERE UserId = @UserId 
-                    AND Token = @Token 
-                    AND ExpiresAt > @Now 
-                    AND IsRevoked = 0";
+        //public async Task<bool> ValidateRefreshTokenAsync(int userId, string refreshToken)
+        //{
+        //    var expireDays = int.Parse(_configuration["Jwt:RefreshTokenExpireDays"] ?? "7");
+        //    var expiresAt = DateTime.UtcNow.AddDays(expireDays);
 
-            var result = await _dbService.GetScalarAsync<int>(
-                sql,
-                new { UserId = userId, Token = refreshToken, Now = DateTime.UtcNow }
-            );
+        //    // Invalidate all existing tokens for this user (pass null token, isForSingle=false)
+        //    // await InvalidateUserTokensAsync(userId, null, false);
 
-            var isValid = result.Success && result.Data > 0;
+        //    var sql = @"sp_UserTokens_CRUD";
 
-            if (!isValid)
-                _logger.LogWarning("Invalid refresh token validation attempt for UserId: {UserId}", userId);
+        //    var result = await _dbService.GetScalarAsync<int>(
+        //        sql,
+        //        new
+        //        {
+        //            Action = "REFRESH",
+        //            UserID = userId,
+        //            RefreshToken = refreshToken,
+        //            ExpiresAt = expiresAt
+        //        },
+        //        commandType: CommandType.StoredProcedure
+        //    );
 
-            return isValid;
-        }
+        //    var isValid = result.Success && result.Data > 0;
+
+        //    if (!isValid)
+        //        _logger.LogWarning("Invalid refresh token validation attempt for UserId: {UserId}", userId);
+
+        //    return isValid;
+        //}
 
         public async Task<ResultData<int>> InvalidateUserTokensAsync(int userId, string? token = null, bool isForSingle = false)
         {

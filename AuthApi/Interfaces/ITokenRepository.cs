@@ -24,7 +24,7 @@ namespace AuthAPI.Interfaces
         /// <returns></returns>
         Task<ResultData<RefreshTokenModel>> GetOldRefreshTokenInfoAsync(string token);
         Task<ResultData<int>> SaveRefreshTokenAsync(int userId, string refreshToken);
-        Task<bool> ValidateRefreshTokenAsync(int userId, string refreshToken);
+        //Task<bool> ValidateRefreshTokenAsync(int userId, string refreshToken);
         Task<ResultData<int>> InvalidateUserTokensAsync(int userId, string? token = null, bool isForSingle = false);
         Task<ResultData<int>> CleanupExpiredTokensAsync(int userId);
      }

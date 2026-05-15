@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Sockets;
 using System.Security.Claims;
 using CoreCommon.HelperCommon.Enums;
+using System.IdentityModel.Tokens.Jwt;
 
 
 namespace AuthAPI.Controllers
@@ -57,13 +58,28 @@ namespace AuthAPI.Controllers
             }
             return  ActionResultHelper.FromResult(this, tokenResponse);
         }
-        //[Authorize]
-        //[HttpPost("refresh")]
-        //public async Task<IActionResult> Refresh([FromBody] RefreshRequestDto request)
-        //{
-        //    var tokenResponse = await _logInRepository.GetRefreshToken(request);
-        //    return ActionResultHelper.FromResult(this, tokenResponse);
-        //}
+      
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(request.accessToken);
+
+            var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim))
+                return Unauthorized("User ID not found in token");
+
+            int userId = int.Parse(userIdClaim);
+
+            var tokenResponse = await _jwtService.AllTokenRefreshAsync(userId, request.RefreshToken);
+            if(!tokenResponse.Success || tokenResponse.Data == null)
+            {
+                _logger.LogWarning("Failed token refresh attempt for user ID: {UserId}", userId);
+                return ActionResultHelper.FromResult(this, tokenResponse);
+            };
+           
+            return  ActionResultHelper.FromResult(this, tokenResponse);
+        }
 
         //[HttpPost("logout")]
         //public async Task<IActionResult> Logout([FromBody] RefreshRequestDto request)
@@ -94,14 +110,14 @@ namespace AuthAPI.Controllers
         //[Authorize(Roles = "Admin")]
         //public IActionResult GetCurrentUser()
         //{
-          
+
         //        // Extract claims from JWT
         //        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         //        var username = User.FindFirst(ClaimTypes.Name)?.Value;
         //        var role = User.FindFirst("role")?.Value;
         //        var department = User.FindFirst("department")?.Value;
         //        var companyId = User.FindFirst("companyId")?.Value;
-         
+
         //    var userInfo = new 
         //        {
         //            UserId = userId,

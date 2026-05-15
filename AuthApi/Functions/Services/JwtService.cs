@@ -1,33 +1,39 @@
 ﻿
 
 
+using AuthAPI.Interfaces;
+using AuthAPI.Models.Entites.User;
+using AuthAPI.Repositories;
+using CoreCommon.AuthModel.RefreshToken;
 using CoreCommon.DbService;
 using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
+using CoreCommon.Models.ViewModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Models;
-using AuthAPI.Models.Entites.User;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using CoreCommon.Models.ViewModels;
 namespace AuthAPI.Function.Services
 {
     public class JwtService
     {
         private readonly IConfiguration _config;
-       
+        private readonly IUserRepository _userRepository;
         private readonly ILogger<JwtService> _logger;
         private readonly IDbService _dbService;
-        public JwtService(IConfiguration config, IDbService dbService, ILogger<JwtService>  logger)
+        private readonly ITokenRepository _tokenRepository;
+        public JwtService(IUserRepository userRepository, IConfiguration config, IDbService dbService, ILogger<JwtService>  logger, ITokenRepository tokenRepository)
         {
             _config = config;
            _dbService= dbService;
             _logger = logger;
+            _userRepository = userRepository;
+            _tokenRepository = tokenRepository;
         }
 
         public string GenerateJWTToken(UsersViewModel user)
@@ -122,6 +128,79 @@ namespace AuthAPI.Function.Services
                 }
 
                 return ResultData<string>.Fail( "Failed to issue refresh token.", ResultStatusCode.BadRequest);
+        }
+        public async Task<ResultData<UsersViewModel?>> ValidateRefreshTokenAsync(int userId, string refreshToken)
+        {
+            var expireDays = int.Parse(_config["Jwt:RefreshTokenExpireDays"] ?? "7");
+            var expiresAt = DateTime.UtcNow.AddDays(expireDays);
+
+            // Invalidate all existing tokens for this user (pass null token, isForSingle=false)
+            // await InvalidateUserTokensAsync(userId, null, false);
+
+            var sql = @"sp_UserTokens_CRUD";
+
+            var result = await _dbService.GetScalarAsync<int>(
+                sql,
+                new
+                {
+                    Action = "REFRESH",
+                    UserID = userId,
+                    RefreshToken = refreshToken,
+                    ExpiresAt = expiresAt
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            var isValid = result.Success && result.Data > 0;
+
+            if (!isValid)
+            {
+                _logger.LogWarning("Invalid refresh token validation attempt for UserId: {UserId}", userId);
+
+                return ResultData<UsersViewModel?>.Fail(result.Error ?? "Invalid refresh token", ResultStatusCode.NotFound);
+            }
+
+            var mresult= await _userRepository.GetUserByIdAsync(userId);
+            if(!mresult.Success  || mresult.Data == null)
+            {
+                return ResultData<UsersViewModel?>.Fail("User not found", ResultStatusCode.NotFound);
+            };
+            return ResultData<UsersViewModel?>.Ok(mresult.Data, ResultStatusCode.Ok);
+        }
+        public async Task<ResultData<TokenResponseModel?>> AllTokenRefreshAsync(int userId, string refreshToken)
+        {
+            var expireDays = int.Parse(_config["Jwt:RefreshTokenExpireDays"] ?? "7");
+            var expiresAt = DateTime.UtcNow.AddDays(expireDays);
+
+            var isValidateData = await ValidateRefreshTokenAsync(userId, refreshToken);
+            if (!isValidateData.Success || isValidateData.Data == null)
+            {
+                return ResultData<TokenResponseModel?>.Fail(isValidateData.Error ?? "Invalid refresh token", ResultStatusCode.NotFound);
+            }
+
+            var user = isValidateData.Data;
+            var jwtToken = GenerateJWTToken(user);
+             refreshToken = GenerateRefreshToken();
+
+            var saveResult = await _tokenRepository.SaveRefreshTokenAsync(user.UserID, refreshToken);
+            if (!saveResult.Success)
+            {
+                _logger.LogError("Failed to save refresh token for user {UserId}: {Error}", user.UserID, saveResult.Error);
+                return ResultData<TokenResponseModel>.Fail("Failed to save refresh token.");
+            }
+
+            //_logger.LogInformation("Successful login for user: {Username} (UserId: {UserId})", user.UserName, user.UserID);
+
+            return ResultData<TokenResponseModel?>.Ok(new TokenResponseModel
+            {
+                Token = jwtToken,
+                RefreshToken = refreshToken,
+                UserId = user.UserID,
+                Username = user.UserName,
+                UserType = user.UserType,
+                RoleName = user.RoleName,
+                ExpiresIn = int.Parse(_config["Jwt:ExpireMinutes"]) ///1800
+            });
         }
 
         public string GenerateRefreshToken()

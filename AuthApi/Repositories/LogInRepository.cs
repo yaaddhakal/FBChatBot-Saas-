@@ -66,32 +66,25 @@ namespace AuthAPI.Repositories
            
         }
 
-        //public async Task<ResultData<TokenResponseModel>> GetRefreshToken(RefreshRequestDto request)
+        //public async Task<ResultData<TokenResponseModel>> GetRefreshToken(RefreshRequestDto request,int userId)
         //{
         //    if (string.IsNullOrEmpty(request.RefreshToken))
         //        return ResultData<TokenResponseModel>.Fail("Invalid refresh token. Empty", ResultStatusCode.Unauthorized);
-            
-        //    var storedTokenResult = await _tokenRepository.GetOldRefreshTokenInfoAsync(request.RefreshToken);
-        //    if(storedTokenResult==null || !storedTokenResult.Success || storedTokenResult.Data == null)
-        //        return ResultData<TokenResponseModel>.Fail( "Invalid refresh token.", ResultStatusCode.Unauthorized);
-        //    var storedToken = storedTokenResult.Data;
-        //    if(storedToken.IsRevoked || storedToken.ExpiresAt < DateTime.UtcNow)
-        //        return ResultData<TokenResponseModel>.Fail( "Refresh token is expired or revoked.", ResultStatusCode.Unauthorized);
-        //    var userResult = await _userRepository.GetUserByIdAsync(storedToken.UserId);
-        //    if (!userResult.Success || userResult.Data == null)
-        //        return ResultData<TokenResponseModel>.Fail( "User not found.", ResultStatusCode.NotFound);
-        //    var user = userResult.Data;
-        //    var newrefreshToken = await _jwtService.IssueNewRefreshTokenAsync(user.UserId,request.RefreshToken,true);
-        //    if (newrefreshToken==null || newrefreshToken.Success == false || string.IsNullOrWhiteSpace( newrefreshToken.Data))
-        //    {
-        //        _logger.LogError("Failed to issue new refresh token for user {UserId}.", user.UserId);
-        //        return ResultData<TokenResponseModel>.Fail("Failed to issue new refresh token.",ResultStatusCode.InternalServerError);
-        //    }
+
+        //    string sql = "sp_UserTokens_CRUD";
+        //    var parma = new { 
+        //        Action="REFRESH",
+        //        UserID = userId,
+        //        RefreshToken=request.RefreshToken
+        //    };
+        //    var newToken = _jwtService.GenerateRefreshToken();
+        //    var expireDays = int.Parse(_config["Jwt:RefreshTokenExpireDays"] ?? "7");
+        //    var expiresAt = DateTime.UtcNow.AddDays(expireDays); 
         //    var newJwtToken = _jwtService.GenerateJWTToken(user);
         //    await _tokenRepository.CleanupExpiredTokensAsync(user.UserId);
 
-           
-        //    var result= new TokenResponseModel
+
+        //    var result = new TokenResponseModel
         //    {
         //        Token = newJwtToken,
         //        RefreshToken = newrefreshToken.Data,
@@ -108,7 +101,7 @@ namespace AuthAPI.Repositories
         //    if (string.IsNullOrEmpty(token))
         //        return ResultData<string>.Fail("Invalid refresh token. Empty", ResultStatusCode.Unauthorized);
         //   var revokeResult = await _tokenRepository.InvalidateUserTokensAsync(userId, token,true);
-           
+
         //    if (!revokeResult.Success)
         //    {
         //        _logger.LogError("Failed to revoke refresh token for UserId: {UserId}. {Error}", userId, revokeResult.Error);

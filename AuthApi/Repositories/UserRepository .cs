@@ -48,23 +48,26 @@ namespace AuthAPI.Repositories
             return ResultData<UsersViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
         }
 
-        public async Task<ResultData<UserViewModel?>> GetUserByIdAsync(int userId)
+        public async Task<ResultData<UsersViewModel?>> GetUserByIdAsync(int userId)
         {
-            const string sql = @"
-        SELECT *
-        FROM dbo.tbl_Users
-        WHERE UserId = @UserId";
+            const string sql = @"sp_Users_CRUD";
 
-            var result = await _dbService.GetAsync<UserViewModel>(sql, new { UserId = userId }, CommandType.Text);
+            var result = await _dbService.GetAsync<UsersViewModel>(sql, 
+                new 
+                {
+                    Action = "SELECTALLBYID",
+                UserID = userId
+                }, 
+                CommandType.StoredProcedure);
 
             if (!result.Success || result.Data == null)
             {
                 _logger.LogWarning("No user found with UserId: {UserId}", userId);
-                return ResultData<UserViewModel?>.Fail(result.Error ?? "User not found", ResultStatusCode.NotFound);
+                return ResultData<UsersViewModel?>.Fail(result.Error ?? "User not found", ResultStatusCode.NotFound);
             }
 
             _logger.LogInformation("User retrieved successfully: {UserId}", userId);
-            return ResultData<UserViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
+            return ResultData<UsersViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
         }
     }
 }

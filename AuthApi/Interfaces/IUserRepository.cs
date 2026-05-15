@@ -13,7 +13,7 @@ namespace AuthAPI.Interfaces
     public interface IUserRepository
     {
         Task<ResultData<UsersViewModel?>> ValidateUserAsync(string username, string password);
-        Task<ResultData<UserViewModel?>> GetUserByIdAsync(int userId);
+        Task<ResultData<UsersViewModel?>> GetUserByIdAsync(int userId);
 
     }
 }
