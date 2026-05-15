@@ -2,11 +2,11 @@
 using AuthAPI.Interfaces;
 using AuthAPI.Repositories;
 using CoreCommon.DbService;
+using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
 using AuthAPI.Models.Entites.User;
-using CoreCommon.HelperCommon;
-using CoreCommon.Models.ViewModels;
 using System.Data;
+using CoreCommon.Models.ViewModels;
 
 namespace AuthAPI.Repositories
 {
@@ -15,7 +15,7 @@ namespace AuthAPI.Repositories
         private readonly IConfiguration _configuration;
         private readonly ILogger<UserRepository> _logger; // Fixed: was ILogger<TokenRepository>
         private readonly IDbService _dbService;
-        //private PasswordEncryption _passwordEncryption;
+
         public UserRepository(IConfiguration configuration, ILogger<UserRepository> logger, IDbService dbservice)
         {
             _configuration = configuration;
@@ -25,13 +25,12 @@ namespace AuthAPI.Repositories
 
         public async Task<ResultData<UsersViewModel?>> ValidateUserAsync(string username, string password)
         {
-            string hashedPassword = PasswordEncryption.HashPassword(password);
-           
             const string sql = @"sp_UserLogin";
+            var pass= PasswordEncryption.HashPassword(password);
             var parameters = new
             {
                 Login = username,
-                PasswordHash = hashedPassword
+                PasswordHash = pass // TODO: hash the password before comparing e.g. BCrypt.HashPassword(password)
             };
 
             var result = await _dbService.GetAsync<UsersViewModel>(sql, parameters, CommandType.StoredProcedure);

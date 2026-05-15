@@ -38,24 +38,20 @@ namespace AuthAPI.Repositories
             var expiresAt = DateTime.UtcNow.AddDays(expireDays);
 
             // Invalidate all existing tokens for this user (pass null token, isForSingle=false)
-            await InvalidateUserTokensAsync(userId, null, false);
+           // await InvalidateUserTokensAsync(userId, null, false);
 
-            var sql = @"
-            INSERT INTO tbl_RefreshTokens 
-                (UserId, Token, ExpiresAt, CreatedAt, IsRevoked) 
-            VALUES 
-                (@UserId, @Token, @ExpiresAt, @CreatedAt, 0)";
+            var sql = @"sp_UserTokens_CRUD";
 
             var result = await _dbService.ExecuteAsync(
                 sql,
                 new
                 {
-                    UserId = userId,
-                    Token = refreshToken,
-                    ExpiresAt = expiresAt,
-                    CreatedAt = DateTime.UtcNow
+                    Action = "LOGIN",
+                    UserID = userId,
+                    RefreshToken = refreshToken,
+                    ExpiresAt = expiresAt
                 },
-                commandType: CommandType.Text
+                commandType: CommandType.StoredProcedure
             );
 
             if (result.Success && result.Data > 0)

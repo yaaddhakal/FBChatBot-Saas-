@@ -43,12 +43,12 @@ namespace AuthAPI.Repositories
             var jwtToken = _jwtService.GenerateJWTToken(user);
             var refreshToken = _jwtService.GenerateRefreshToken();
 
-            //var saveResult = await _tokenRepository.SaveRefreshTokenAsync(user.UserID, refreshToken);
-            //if (!saveResult.Success)
-            //{
-            //    _logger.LogError("Failed to save refresh token for user {UserId}: {Error}", user.UserID, saveResult.Error);
-            //    return ResultData<TokenResponseModel>.Fail("Failed to save refresh token.");
-            //}
+            var saveResult = await _tokenRepository.SaveRefreshTokenAsync(user.UserID, refreshToken);
+            if (!saveResult.Success)
+            {
+                _logger.LogError("Failed to save refresh token for user {UserId}: {Error}", user.UserID, saveResult.Error);
+                return ResultData<TokenResponseModel>.Fail("Failed to save refresh token.");
+            }
 
             //_logger.LogInformation("Successful login for user: {Username} (UserId: {UserId})", user.UserName, user.UserID);
 
