@@ -28,49 +28,58 @@ namespace CoreCommon.HelperCommon
             return user.FindFirst(ClaimTypes.Role)?.Value
                    ?? user.FindFirst("role")?.Value;
         }
-        public static string? GetDepartmentId(ClaimsPrincipal user)
+        public static string? GetTenantId(ClaimsPrincipal user)
         {
-            return user.FindFirst("departmentId")?.Value;
-        }
-        public static string? GetDepartment(ClaimsPrincipal user)
-        {
-            return user.FindFirst("department")?.Value;
+            return user.FindFirst("tenantId")?.Value;
         }
 
-        public static string? GetCompanyId(ClaimsPrincipal user)
+        public static string? GetTenantName(ClaimsPrincipal user)
         {
-            return user.FindFirst("companyId")?.Value;
+            return user.FindFirst("tenantName")?.Value;
         }
-        public static string? GetCompanyName(ClaimsPrincipal user)
+
+        public static string? GetIndustryId(ClaimsPrincipal user)
         {
-            return user.FindFirst("companyName")?.Value;
+            return user.FindFirst("industryId")?.Value;
+        }
+
+        public static string? GetIndustryName(ClaimsPrincipal user)
+        {
+            return user.FindFirst("industryName")?.Value;
+        }
+
+        public static string? GetUserType(ClaimsPrincipal user)
+        {
+            return user.FindFirst("userType")?.Value;
         }
         public CurrentUserInfo GetCurrentUserByClaim(ClaimsPrincipal user)
         {
             var userInfo = new CurrentUserInfo
             {
-                UserId = ClaimsHelper.GetUserId(user),
-                Username = ClaimsHelper.GetUsername(user),
-                RoleId = ClaimsHelper.GetUserRoleId(user),
+                UserID = ClaimsHelper.GetUserId(user),
+                UserName = ClaimsHelper.GetUsername(user),
+                RoleID = ClaimsHelper.GetUserRoleId(user),
                 Role = ClaimsHelper.GetUserRole(user),
-                DepartmentId = ClaimsHelper.GetDepartmentId(user),
-                Department = ClaimsHelper.GetDepartment(user),
-                CompanyId = ClaimsHelper.GetCompanyId(user),
-                CompanyName = ClaimsHelper.GetCompanyName(user)
+                TenantID = ClaimsHelper.GetTenantId(user),
+                TenantName = ClaimsHelper.GetTenantName(user),
+                IndustryID = ClaimsHelper.GetIndustryId(user),
+                IndustryName = ClaimsHelper.GetIndustryName(user),
+                UserType = ClaimsHelper.GetUserType(user)
             };
 
             return userInfo;
         }
         public class CurrentUserInfo
         {
-            public string? UserId { get; set; }
-            public string? Username { get; set; }
-            public string? RoleId { get; set; }
+            public string? UserID { get; set; }
+            public string? UserName { get; set; }
+            public string? RoleID { get; set; }
             public string? Role { get; set; }
-            public string? DepartmentId { get; set; }
-            public string? Department { get; set; }
-            public string? CompanyId { get; set; }
-            public string? CompanyName { get; set; }
+            public string? TenantID { get; set; }
+            public string? TenantName { get; set; }
+            public string? IndustryID { get; set; }
+            public string? IndustryName { get; set; }
+            public string? UserType { get; set; }
         }
     }
 }

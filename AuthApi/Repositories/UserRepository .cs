@@ -1,12 +1,12 @@
 
 using AuthAPI.Interfaces;
+using AuthAPI.Models.Entites.User;
 using AuthAPI.Repositories;
 using CoreCommon.DbService;
 using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
-using AuthAPI.Models.Entites.User;
+using CoreCommon.Models.UsersModels;
 using System.Data;
-using CoreCommon.Models.ViewModels;
 
 namespace AuthAPI.Repositories
 {
@@ -23,7 +23,7 @@ namespace AuthAPI.Repositories
             _dbService = dbservice;
         }
 
-        public async Task<ResultData<UsersViewModel?>> ValidateUserAsync(string username, string password)
+        public async Task<ResultData<UserViewDto?>> ValidateUserAsync(string username, string password)
         {
             const string sql = @"sp_UserLogin";
             var pass= PasswordEncryption.HashPassword(password);
@@ -33,26 +33,26 @@ namespace AuthAPI.Repositories
                 PasswordHash = pass // TODO: hash the password before comparing e.g. BCrypt.HashPassword(password)
             };
 
-            var result = await _dbService.GetAsync<UsersViewModel>(sql, parameters, CommandType.StoredProcedure);
+            var result = await _dbService.GetAsync<UserViewDto>(sql, parameters, CommandType.StoredProcedure);
 
             if (!result.Success || result.Data == null)
             {
                 _logger.LogWarning("User validation failed for Username: {Username}", username);
-                var rResult=ResultData<UsersViewModel?>.Fail(string.IsNullOrWhiteSpace( result.Error) ? "Invalid username or password":result.Error, ResultStatusCode.BadRequest);
-                var qq = ResultData<UsersViewModel?>.Fail("Invalid username or password", ResultStatusCode.BadRequest);
+                var rResult=ResultData<UserViewDto?>.Fail(string.IsNullOrWhiteSpace( result.Error) ? "Invalid username or password":result.Error, ResultStatusCode.BadRequest);
+                var qq = ResultData<UserViewDto?>.Fail("Invalid username or password", ResultStatusCode.BadRequest);
               
                 return rResult;
             }
 
             _logger.LogInformation("User validated successfully: {Username}", username);
-            return ResultData<UsersViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
+            return ResultData<UserViewDto?>.Ok(result.Data, ResultStatusCode.Ok);
         }
 
-        public async Task<ResultData<UsersViewModel?>> GetUserByIdAsync(int userId)
+        public async Task<ResultData<UserViewDto?>> GetUserByIdAsync(int userId)
         {
             const string sql = @"sp_Users_CRUD";
 
-            var result = await _dbService.GetAsync<UsersViewModel>(sql, 
+            var result = await _dbService.GetAsync<UserViewDto>(sql, 
                 new 
                 {
                     Action = "SELECTALLBYID",
@@ -63,11 +63,11 @@ namespace AuthAPI.Repositories
             if (!result.Success || result.Data == null)
             {
                 _logger.LogWarning("No user found with UserId: {UserId}", userId);
-                return ResultData<UsersViewModel?>.Fail(result.Error ?? "User not found", ResultStatusCode.NotFound);
+                return ResultData<UserViewDto?>.Fail(result.Error ?? "User not found", ResultStatusCode.NotFound);
             }
 
             _logger.LogInformation("User retrieved successfully: {UserId}", userId);
-            return ResultData<UsersViewModel?>.Ok(result.Data, ResultStatusCode.Ok);
+            return ResultData<UserViewDto?>.Ok(result.Data, ResultStatusCode.Ok);
         }
     }
 }

@@ -1,72 +1,24 @@
 [
   {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/User/change-password",
+    "ContainingType": "TenantController",
+    "Method": "CreateTenantAsync",
+    "RelativePath": "api/Tenant/CreateTenantAsync",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "UserServiceAPI.DTOs.Users.ChangePasswordDto",
+        "Name": "tenant",
+        "Type": "UserServiceAPI.DTOs.Tenant.TenantDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "CheckUsername",
-    "RelativePath": "api/User/check-username/{username}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "CheckEmail",
-    "RelativePath": "api/User/CheckEmail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "CreateUser",
-    "RelativePath": "api/User/CreateUser",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "UserServiceAPI.DTOs.Users.UserCreateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "DeleteUser",
-    "RelativePath": "api/User/DeleteUser",
+    "ContainingType": "TenantController",
+    "Method": "DeleteTenantAsync",
+    "RelativePath": "api/Tenant/DeleteTenantAsync/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -74,7 +26,54 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TenantController",
+    "Method": "GetAllTenantsAsync",
+    "RelativePath": "api/Tenant/GetAllTenantsAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TenantController",
+    "Method": "GetTenantByIdAsync",
+    "RelativePath": "api/Tenant/GetTenantByIdAsync/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TenantController",
+    "Method": "UpdateTenantAsync",
+    "RelativePath": "api/Tenant/UpdateTenantAsync/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tenant",
+        "Type": "UserServiceAPI.DTOs.Tenant.TenantDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -83,26 +82,6 @@
     "ContainingType": "UserServiceAPI.Controllers.UserController",
     "Method": "GetAllUsersAsync",
     "RelativePath": "api/User/GetAllUsersAsync",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "GetAllUsersByCompanyIdAsync",
-    "RelativePath": "api/User/GetAllUsersByCompanyIdAsync",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "GetAllUsersDetailAsync",
-    "RelativePath": "api/User/GetAllUsersDetailAsync",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -127,22 +106,6 @@
   },
   {
     "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "GetUsersByRoleAndCompanyIdAsync",
-    "RelativePath": "api/User/GetUsersByRoleAndCompanyIdAsync",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roleId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
     "Method": "GetUserWithDetailAsync",
     "RelativePath": "api/User/GetUserWithDetailAsync",
     "HttpMethod": "GET",
@@ -153,80 +116,6 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "UpdateKYC",
-    "RelativePath": "api/User/kyc",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "UserServiceAPI.DTOs.Users.KYCUpdateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "ResetPassword",
-    "RelativePath": "api/User/reset-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "UserServiceAPI.DTOs.Users.ChangePasswordDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "ToggleUserStatus",
-    "RelativePath": "api/User/ToggleUserStatus",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "isActive",
-        "Type": "System.Boolean",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UserServiceAPI.Controllers.UserController",
-    "Method": "UpdateUser",
-    "RelativePath": "api/User/UpdateUser",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "dto",
-        "Type": "UserServiceAPI.DTOs.Users.UserUpdateDto",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []

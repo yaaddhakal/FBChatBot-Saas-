@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "E:\\ChatBot\\FBChatBot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\controllers\\tenantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\controllers\\tenantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\repositories\\userrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\repositories\\userrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\controllers\\usercontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27C5622C-6353-283A-206F-0E733D95BA18}|CoreCommon\\CoreCommon.csproj|e:\\chatbot\\fbchatbot\\corecommon\\dbservice\\dbservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27C5622C-6353-283A-206F-0E733D95BA18}|CoreCommon\\CoreCommon.csproj|solutionrelative:corecommon\\dbservice\\dbservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\repositories\\userrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\repositories\\userrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\functions\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\functions\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\repositories\\tenantrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\repositories\\tenantrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\repositories\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\repositories\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\interfaces\\itenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\interfaces\\itenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\repositories\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\repositories\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\interfaces\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\interfaces\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|e:\\chatbot\\fbchatbot\\authapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A4BC8C1-7AED-C37A-9087-A1783EF055D4}|AuthApi\\AuthAPI.csproj|solutionrelative:authapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|e:\\chatbot\\fbchatbot\\userserviceapi\\dtos\\tenant\\tenantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5C6A51-30F6-4EFA-82E5-F313995FF08A}|UserServiceAPI\\UserServiceAPI.csproj|solutionrelative:userserviceapi\\dtos\\tenant\\tenantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,107 +49,98 @@
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DBService .cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\CoreCommon\\DbService\\DBService .cs",
-              "RelativeDocumentMoniker": "CoreCommon\\DbService\\DBService .cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\CoreCommon\\DbService\\DBService .cs",
-              "RelativeToolTip": "CoreCommon\\DbService\\DBService .cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAvwCIAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T18:10:54.728Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ITokenRepository.cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Interfaces\\ITokenRepository.cs",
-              "RelativeDocumentMoniker": "AuthApi\\Interfaces\\ITokenRepository.cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Interfaces\\ITokenRepository.cs",
-              "RelativeToolTip": "AuthApi\\Interfaces\\ITokenRepository.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAiwBkAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TenantRepository .cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Repositories\\TenantRepository .cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\Repositories\\TenantRepository .cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Repositories\\TenantRepository .cs",
+              "RelativeToolTip": "UserServiceAPI\\Repositories\\TenantRepository .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T10:07:54.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "AuthApi\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "AuthApi\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T10:06:02.101Z",
+              "WhenOpened": "2026-05-24T12:12:41.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LogInRepository.cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Repositories\\LogInRepository.cs",
-              "RelativeDocumentMoniker": "AuthApi\\Repositories\\LogInRepository.cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Repositories\\LogInRepository.cs",
-              "RelativeToolTip": "AuthApi\\Repositories\\LogInRepository.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAvwCMAAAAMAAAAAAAAAA==",
+              "Title": "ITenantRepository.cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Interfaces\\ITenantRepository.cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\Interfaces\\ITenantRepository.cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Interfaces\\ITenantRepository.cs",
+              "RelativeToolTip": "UserServiceAPI\\Interfaces\\ITenantRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T02:07:44.1Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Functions\\Services\\JwtService.cs",
-              "RelativeDocumentMoniker": "AuthApi\\Functions\\Services\\JwtService.cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Functions\\Services\\JwtService.cs",
-              "RelativeToolTip": "AuthApi\\Functions\\Services\\JwtService.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAEwJsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T02:06:46.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserRepository .cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Repositories\\UserRepository .cs",
-              "RelativeDocumentMoniker": "AuthApi\\Repositories\\UserRepository .cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Repositories\\UserRepository .cs",
-              "RelativeToolTip": "AuthApi\\Repositories\\UserRepository .cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAEwD4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T01:52:20.243Z",
+              "WhenOpened": "2026-05-24T12:07:58.73Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "TokenRepository.cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Repositories\\TokenRepository.cs",
-              "RelativeDocumentMoniker": "AuthApi\\Repositories\\TokenRepository.cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Repositories\\TokenRepository.cs",
-              "RelativeToolTip": "AuthApi\\Repositories\\TokenRepository.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAADwvyIAAAArAAAAAAAAAA==",
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "UserServiceAPI\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T01:38:39.487Z",
+              "WhenOpened": "2026-05-24T12:10:46.836Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\AuthApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "AuthApi\\Controllers\\AuthController.cs",
-              "ToolTip": "E:\\ChatBot\\FBChatBot\\AuthApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "AuthApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAAAFAAAAAMAAAAAAAAAA==",
+              "Title": "TenantController.cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Controllers\\TenantController.cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\Controllers\\TenantController.cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Controllers\\TenantController.cs",
+              "RelativeToolTip": "UserServiceAPI\\Controllers\\TenantController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAowD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T01:37:37.799Z",
+              "WhenOpened": "2026-05-24T12:06:20.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController .cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Controllers\\UserController .cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\Controllers\\UserController .cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Controllers\\UserController .cs",
+              "RelativeToolTip": "UserServiceAPI\\Controllers\\UserController .cs",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAwwAIBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T11:11:03.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TenantDto.cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\DTOs\\Tenant\\TenantDto.cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\DTOs\\Tenant\\TenantDto.cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\DTOs\\Tenant\\TenantDto.cs",
+              "RelativeToolTip": "UserServiceAPI\\DTOs\\Tenant\\TenantDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA1wA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T11:24:30.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRepository .cs",
+              "DocumentMoniker": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Repositories\\UserRepository .cs",
+              "RelativeDocumentMoniker": "UserServiceAPI\\Repositories\\UserRepository .cs",
+              "ToolTip": "E:\\ChatBot\\FBChatBot\\UserServiceAPI\\Repositories\\UserRepository .cs",
+              "RelativeToolTip": "UserServiceAPI\\Repositories\\UserRepository .cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAcwLwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T11:11:21.039Z",
               "EditorCaption": ""
             }
           ]

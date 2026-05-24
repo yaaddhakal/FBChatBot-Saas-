@@ -6,6 +6,12 @@
 		<RootNamespace>AuthAPI</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Remove="Doc\**" />
+	  <Content Remove="Doc\**" />
+	  <EmbeddedResource Remove="Doc\**" />
+	  <None Remove="Doc\**" />
+	</ItemGroup>
+	<ItemGroup>
 		<!-- Authentication & Authorization -->
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" />

@@ -1,5 +1,6 @@
 ﻿using BCrypt.Net;
 using CoreCommon.DbService;
+using CoreCommon.Models.UsersModels;
 using System.Data;
 using UserServiceAPI.DTOs;
 using UserServiceAPI.DTOs.Users;
@@ -146,13 +147,13 @@ namespace UserServiceAPI.Repositories
         // ============================================================
         // GET USER BY ID
         // ============================================================
-        public async Task<ResultData<UserResponseDto>> GetUserByIdAsync(int userId)
+        public async Task<ResultData<UserDto>> GetUserByIdAsync(int userId)
         {
-            return await _dbService.GetAsync<UserResponseDto>(
-                "sp_ManageUser",
+            return await _dbService.GetAsync<UserDto>(
+                "sp_Users_CRUD",
                 new
                 {
-                    Flag = "GETBYID",
+                    Action = "SELECT",
                     UserId = userId
                 },
                 CommandType.StoredProcedure);
@@ -161,13 +162,13 @@ namespace UserServiceAPI.Repositories
         // ============================================================
         // GET USER WITH DETAIL
         // ============================================================
-        public async Task<ResultData<UserDetailResponseDto>> GetUserWithDetailAsync(int userId)
+        public async Task<ResultData<UserViewDto>> GetUserWithDetailAsync(int userId)
         {
-            return await _dbService.GetAsync<UserDetailResponseDto>(
-                "sp_ManageUser",
+            return await _dbService.GetAsync<UserViewDto>(
+                "sp_Users_CRUD",
                 new
                 {
-                    Flag = "GETDETAILBYID",
+                    Action = "SELECTALLBYID",
                     UserId = userId
                 },
                 CommandType.StoredProcedure);
@@ -175,16 +176,17 @@ namespace UserServiceAPI.Repositories
         // ============================================================
         // GET ALL USERS
         // ============================================================
-        public async Task<ResultData<List<UserListDto>>> GetAllUsersAsync()
+        public async Task<ResultData<List<UserDto>>> GetAllUsersAsync()
         {
-            return await _dbService.GetAllAsync<UserListDto>(
-                "sp_ManageUser",
+            var Result= await _dbService.GetAllAsync<UserDto>(
+                "sp_Users_CRUD",
                 new
                 {
-                    Flag = "GETAllUSERONLY"
+                    Action = "SELECT"
 
                 },
                 CommandType.StoredProcedure);
+            return Result;
         }
 
         // ============================================================

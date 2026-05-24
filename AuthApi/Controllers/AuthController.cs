@@ -62,15 +62,19 @@ namespace AuthAPI.Controllers
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
         {
-            var handler = new JwtSecurityTokenHandler();
-            var jwtToken = handler.ReadJwtToken(request.accessToken);
+            //var handler = new JwtSecurityTokenHandler();
+            //var jwtToken = handler.ReadJwtToken(request.accessToken);
 
-            var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
+            //var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
+            //if (string.IsNullOrEmpty(userIdClaim))
+            //    return Unauthorized("User ID not found in token");
+
+            //int userId = int.Parse(userIdClaim);
+            // Use ClaimsHelper instead of manual parsing
+            var userIdClaim = ClaimsHelper.GetUserId(User);
             if (string.IsNullOrEmpty(userIdClaim))
                 return Unauthorized("User ID not found in token");
-
-            int userId = int.Parse(userIdClaim);
-
+            int userId = userIdClaim != null ? int.Parse(userIdClaim) : 0;
             var tokenResponse = await _jwtService.AllTokenRefreshAsync(userId, request.RefreshToken);
             if(!tokenResponse.Success || tokenResponse.Data == null)
             {

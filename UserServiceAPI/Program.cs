@@ -261,7 +261,7 @@ try
     app.UseCors("AllowAll");
 
     // 7. API Key Middleware
-    app.UseMiddleware<ApiKeyMiddleware>();
+    //app.UseMiddleware<ApiKeyMiddleware>();
 
     // 8. Authentication
     app.UseAuthentication();

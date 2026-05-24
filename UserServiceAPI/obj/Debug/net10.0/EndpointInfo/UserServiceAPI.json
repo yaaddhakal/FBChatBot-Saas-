@@ -10,10 +10,129 @@
     "version": "v1"
   },
   "paths": {
-    "/api/User/GetAllUsersByCompanyIdAsync": {
+    "/api/Tenant/GetAllTenantsAsync": {
       "get": {
         "tags": [
-          "User"
+          "Tenant"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenant/GetTenantByIdAsync/{id}": {
+      "get": {
+        "tags": [
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenant/CreateTenantAsync": {
+      "post": {
+        "tags": [
+          "Tenant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenantDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenantDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenantDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenant/UpdateTenantAsync/{id}": {
+      "put": {
+        "tags": [
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenantDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenantDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenantDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenant/DeleteTenantAsync/{id}": {
+      "delete": {
+        "tags": [
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -56,18 +175,6 @@
         }
       }
     },
-    "/api/User/GetAllUsersDetailAsync": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/User/GetUserWithDetailAsync": {
       "get": {
         "tags": [
@@ -80,299 +187,6 @@
             "schema": {
               "type": "integer",
               "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/GetUsersByRoleAndCompanyIdAsync": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "roleId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/CreateUser": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserCreateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserCreateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserCreateDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/UpdateUser": {
-      "put": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserUpdateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserUpdateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserUpdateDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/DeleteUser": {
-      "delete": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/ToggleUserStatus": {
-      "patch": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "boolean"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "boolean"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "boolean"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/change-password": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/reset-password": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChangePasswordDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/kyc": {
-      "put": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/KYCUpdateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/KYCUpdateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/KYCUpdateDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/check-username/{username}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/User/CheckEmail": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "email",
-            "in": "query",
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -425,202 +239,26 @@
   },
   "components": {
     "schemas": {
-      "ChangePasswordDto": {
-        "required": [
-          "confirmPassword",
-          "currentPassword",
-          "newPassword"
-        ],
+      "TenantDto": {
         "type": "object",
         "properties": {
-          "userId": {
+          "tenantID": {
             "type": "integer",
             "format": "int32"
           },
-          "currentPassword": {
+          "tenantName": {
             "type": "string",
             "nullable": true
           },
-          "newPassword": {
+          "contactEmail": {
             "type": "string",
             "nullable": true
           },
-          "confirmPassword": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "KYCUpdateDto": {
-        "required": [
-          "kycStatus"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "kycStatus": {
+          "phno": {
             "type": "string",
             "nullable": true
           },
-          "kycDocument": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserCreateDto": {
-        "required": [
-          "fullName",
-          "password",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "dob": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "gender": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "mobileNo": {
-            "type": "string",
-            "nullable": true
-          },
-          "issuedDate_From": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "issuedDate_To": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "imageLocation": {
-            "type": "string",
-            "nullable": true
-          },
-          "country": {
-            "type": "string",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "nullable": true
-          },
-          "city": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "postalCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "nationalId": {
-            "type": "string",
-            "nullable": true
-          },
-          "occupation": {
-            "type": "string",
-            "nullable": true
-          },
-          "bloodGroup": {
-            "type": "string",
-            "nullable": true
-          },
-          "alternateMobile": {
-            "type": "string",
-            "nullable": true
-          },
-          "emergencyContact": {
-            "type": "string",
-            "nullable": true
-          },
-          "accountLimit": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserUpdateDto": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "mobileNo": {
-            "type": "string",
-            "nullable": true
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "dob": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "gender": {
-            "type": "string",
-            "nullable": true
-          },
-          "issuedDate_From": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "issuedDate_To": {
+          "createdAt": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -628,59 +266,14 @@
           "isActive": {
             "type": "boolean"
           },
-          "imageLocation": {
+          "isRecorded": {
+            "type": "boolean"
+          },
+          "col1": {
             "type": "string",
             "nullable": true
           },
-          "country": {
-            "type": "string",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "nullable": true
-          },
-          "city": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "postalCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "nationalId": {
-            "type": "string",
-            "nullable": true
-          },
-          "occupation": {
-            "type": "string",
-            "nullable": true
-          },
-          "bloodGroup": {
-            "type": "string",
-            "nullable": true
-          },
-          "alternateMobile": {
-            "type": "string",
-            "nullable": true
-          },
-          "emergencyContact": {
-            "type": "string",
-            "nullable": true
-          },
-          "accountLimit": {
-            "type": "number",
-            "format": "double"
-          },
-          "kycStatus": {
-            "type": "string",
-            "nullable": true
-          },
-          "kycDocument": {
+          "col2": {
             "type": "string",
             "nullable": true
           }

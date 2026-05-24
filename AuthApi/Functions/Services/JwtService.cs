@@ -8,7 +8,7 @@ using CoreCommon.AuthModel.RefreshToken;
 using CoreCommon.DbService;
 using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
-using CoreCommon.Models.ViewModels;
+using CoreCommon.Models.UsersModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +36,7 @@ namespace AuthAPI.Function.Services
             _tokenRepository = tokenRepository;
         }
 
-        public string GenerateJWTToken(UsersViewModel user)
+        public string GenerateJWTToken(UserViewDto user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -47,7 +47,7 @@ namespace AuthAPI.Function.Services
             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
             new Claim("role", user.RoleName),
             new Claim("roleId", user.RoleID.ToString()),
-            new Claim("IndustryID", user.IndustryID.ToString()),
+            new Claim("IndustryID", user.ToString()),
             new Claim("IndustryName", user.IndustryName),
             new Claim("TenantName", user.TenantName),
             new Claim("TenantID", user.TenantID.ToString()),
@@ -70,7 +70,7 @@ namespace AuthAPI.Function.Services
             var newToken = GenerateRefreshToken();
             var expireDays = int.Parse(_config["Jwt:RefreshTokenExpireDays"] ?? "7");
             var expiresAt = DateTime.UtcNow.AddDays(expireDays);
-           ;
+           
 
 
             var commands = new List<(string, object?, CommandType)>();
@@ -129,7 +129,7 @@ namespace AuthAPI.Function.Services
 
                 return ResultData<string>.Fail( "Failed to issue refresh token.", ResultStatusCode.BadRequest);
         }
-        public async Task<ResultData<UsersViewModel?>> ValidateRefreshTokenAsync(int userId, string refreshToken)
+        public async Task<ResultData<UserViewDto?>> ValidateRefreshTokenAsync(int userId, string refreshToken)
         {
             var expireDays = int.Parse(_config["Jwt:RefreshTokenExpireDays"] ?? "7");
             var expiresAt = DateTime.UtcNow.AddDays(expireDays);
@@ -157,15 +157,15 @@ namespace AuthAPI.Function.Services
             {
                 _logger.LogWarning("Invalid refresh token validation attempt for UserId: {UserId}", userId);
 
-                return ResultData<UsersViewModel?>.Fail(result.Error ?? "Invalid refresh token", ResultStatusCode.NotFound);
+                return ResultData<UserViewDto?>.Fail(result.Error ?? "Invalid refresh token", ResultStatusCode.NotFound);
             }
 
             var mresult= await _userRepository.GetUserByIdAsync(userId);
             if(!mresult.Success  || mresult.Data == null)
             {
-                return ResultData<UsersViewModel?>.Fail("User not found", ResultStatusCode.NotFound);
+                return ResultData<UserViewDto?>.Fail("User not found", ResultStatusCode.NotFound);
             };
-            return ResultData<UsersViewModel?>.Ok(mresult.Data, ResultStatusCode.Ok);
+            return ResultData<UserViewDto?>.Ok(mresult.Data, ResultStatusCode.Ok);
         }
         public async Task<ResultData<TokenResponseModel?>> AllTokenRefreshAsync(int userId, string refreshToken)
         {

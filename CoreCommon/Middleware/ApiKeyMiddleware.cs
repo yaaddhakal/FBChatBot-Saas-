@@ -24,7 +24,7 @@ namespace CoreCommon.Middleware
         private readonly string[] _excludedPaths = new[]
         {
             "/health",
-            "/swagger"
+            "/swagger","GetAllUsersAsync"
         };
 
         public ApiKeyMiddleware(

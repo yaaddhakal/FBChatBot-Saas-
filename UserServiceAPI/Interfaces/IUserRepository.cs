@@ -1,4 +1,5 @@
-﻿using UserServiceAPI.DTOs.Users;
+﻿using CoreCommon.Models.UsersModels;
+using UserServiceAPI.DTOs.Users;
 
 namespace UserServiceAPI.Interfaces
 {
@@ -15,9 +16,9 @@ namespace UserServiceAPI.Interfaces
         // ============================================================
         // USER QUERIES
         // ============================================================
-        Task<ResultData<UserResponseDto>> GetUserByIdAsync(int userId);
-        Task<ResultData<UserDetailResponseDto>> GetUserWithDetailAsync(int userId);
-        Task<ResultData<List<UserListDto>>> GetAllUsersAsync();
+        Task<ResultData<UserDto>> GetUserByIdAsync(int userId);
+        Task<ResultData<UserViewDto>> GetUserWithDetailAsync(int userId);
+        Task<ResultData<List<UserDto>>> GetAllUsersAsync();
         //Task<ResultData<List<UserListDto>>> GetAllUsersDetailsAsync();
         Task<ResultData<List<UserDetailResponseDto>>> GetAllUsersDetailsAsync();
         Task<ResultData<List<UserListDto>>> GetAllUsersByCompanyIdAsync(int companyId);
