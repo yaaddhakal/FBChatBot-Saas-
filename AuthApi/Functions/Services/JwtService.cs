@@ -45,13 +45,13 @@ namespace AuthAPI.Function.Services
             {
             new Claim(JwtRegisteredClaimNames.Sub, user.UserID.ToString()),
             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
-            new Claim("role", user.RoleName),
+            new Claim("role", user.RoleName ?? string.Empty),
             new Claim("roleId", user.RoleID.ToString()),
-            new Claim("IndustryID", user.ToString()),
-            new Claim("IndustryName", user.IndustryName),
-            new Claim("TenantName", user.TenantName),
-            new Claim("TenantID", user.TenantID.ToString()),
-            new Claim("UserType", user.UserType)
+            new Claim("IndustryID", user.ToString()  ?? string.Empty),
+            new Claim("IndustryName", user.IndustryName ?? string.Empty),
+            new Claim("TenantName", user.TenantName ?? string.Empty),
+            new Claim("TenantID", user.TenantID.ToString() ?? string.Empty),
+            new Claim("UserType", user.UserType ?? string.Empty)
         };
 
             var token = new JwtSecurityToken(

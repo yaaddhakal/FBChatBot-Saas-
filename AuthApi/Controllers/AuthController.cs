@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Sockets;
 using System.Security.Claims;
-using CoreCommon.HelperCommon.Enums;
 using System.IdentityModel.Tokens.Jwt;
 
 
@@ -56,21 +55,14 @@ namespace AuthAPI.Controllers
                 _logger.LogWarning("Failed login attempt for user: {Username}", request.Username);
                 return ActionResultHelper.FromResult(this, tokenResponse); 
             }
+           // return tokenResponse.Success ? Ok(tokenResponse) : NotFound(tokenResponse);
             return  ActionResultHelper.FromResult(this, tokenResponse);
         }
       
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
         {
-            //var handler = new JwtSecurityTokenHandler();
-            //var jwtToken = handler.ReadJwtToken(request.accessToken);
-
-            //var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
-            //if (string.IsNullOrEmpty(userIdClaim))
-            //    return Unauthorized("User ID not found in token");
-
-            //int userId = int.Parse(userIdClaim);
-            // Use ClaimsHelper instead of manual parsing
+            
             var userIdClaim = ClaimsHelper.GetUserId(User);
             if (string.IsNullOrEmpty(userIdClaim))
                 return Unauthorized("User ID not found in token");
@@ -81,7 +73,7 @@ namespace AuthAPI.Controllers
                 _logger.LogWarning("Failed token refresh attempt for user ID: {UserId}", userId);
                 return ActionResultHelper.FromResult(this, tokenResponse);
             };
-           
+           // return tokenResponse.Success ? Ok(tokenResponse) : NotFound(tokenResponse);
             return  ActionResultHelper.FromResult(this, tokenResponse);
         }
 

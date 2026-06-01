@@ -10,7 +10,7 @@ namespace UserServiceAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
@@ -27,26 +27,8 @@ namespace UserServiceAPI.Controllers
             _logger = logger;
         }
 
-        // ============================================================
-        // GET ALL USERS
-        // GET: api/User
-        // ============================================================
-        //[HttpGet("GetAllUsersByCompanyIdAsync")]
-        //public async Task<IActionResult> GetAllUsersByCompanyIdAsync()
-        //{
-        //    _logger.LogInformation("GetAllUsers by UserId: {UserId} CompanyId: {CompanyId}",
-        //        _currentUser.UserId, _currentUser.CompanyId);
-
-        //    var result = await _userRepository.GetAllUsersByCompanyIdAsync(_currentUser.CompanyId);
-        //    return result.Success ? Ok(result) : BadRequest(result);
-        //}
-
-        // ============================================================
-        // GET USER BY ID
-        // GET: api/User/5
-        // ============================================================
         [HttpGet("GetUserByIdAsync")]
-        //[Authorize(Roles = "Masteradmin")]
+        [Authorize(Roles = "Masteradmin")]
         public async Task<IActionResult> GetUserByIdAsync(int id)
         {
             _logger.LogInformation("GetUserById: {UserId}", id);
@@ -56,7 +38,7 @@ namespace UserServiceAPI.Controllers
         }
 
         [HttpGet("GetAllUsersAsync")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllUsersAsync()
         {
             _logger.LogInformation("GetUserById: ");
@@ -101,27 +83,27 @@ namespace UserServiceAPI.Controllers
         //    return result.Success ? Ok(result) : BadRequest(result);
         //}
 
-        //// ============================================================
-        //// CREATE USER
-        //// POST: api/User
-        //// ============================================================
-        //[HttpPost("CreateUser")]
-        //public async Task<IActionResult> CreateUser([FromBody] UserCreateDto dto)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ResultData<string>.Fail("Invalid request data"));
+        // ============================================================
+        // CREATE USER
+        // POST: api/User
+        // ============================================================
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ResultData<string>.Fail("Invalid request data"));
 
-        //    _logger.LogInformation("CreateUser: {Username} by UserId: {UserId}",
-        //        dto.Username, _currentUser.UserId);
+            _logger.LogInformation("CreateUser: {Username} by UserId: {UserId}",
+                dto.Username, _currentUser.UserId);
 
-        //    var result = await _userRepository
-        //        .CreateUserAsync(dto, _currentUser.UserId);
+            var result = await _userRepository
+                .CreateUserAsync(dto, _currentUser.UserId);
 
-        //    return result.Success
-        //        ? CreatedAtAction(nameof(GetUserByIdAsync),
-        //            new { id = result.Data }, result)
-        //        : BadRequest(result);
-        //}
+            return result.Success
+                ? CreatedAtAction(nameof(GetUserByIdAsync),
+                    new { id = result.Data }, result)
+                : BadRequest(result);
+        }
 
         //// ============================================================
         //// UPDATE USER

@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "TenantController",
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
     "Method": "CreateTenantAsync",
     "RelativePath": "api/Tenant/CreateTenantAsync",
     "HttpMethod": "POST",
@@ -16,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TenantController",
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
     "Method": "DeleteTenantAsync",
-    "RelativePath": "api/Tenant/DeleteTenantAsync/{id}",
+    "RelativePath": "api/Tenant/DeleteTenantAsync",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -26,13 +26,13 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TenantController",
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
     "Method": "GetAllTenantsAsync",
     "RelativePath": "api/Tenant/GetAllTenantsAsync",
     "HttpMethod": "GET",
@@ -42,9 +42,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TenantController",
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
+    "Method": "GetAllTenantsListAsync",
+    "RelativePath": "api/Tenant/GetAllTenantsListAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
     "Method": "GetTenantByIdAsync",
-    "RelativePath": "api/Tenant/GetTenantByIdAsync/{id}",
+    "RelativePath": "api/Tenant/GetTenantByIdAsync",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -52,27 +62,70 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
+    "Method": "GetIndustriesByTenantAsync",
+    "RelativePath": "api/Tenant/industries/{tenantID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tenantID",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TenantController",
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
+    "Method": "SignupTenantAsync",
+    "RelativePath": "api/Tenant/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UserServiceAPI.DTOs.Tenant.SignupTenantRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
     "Method": "UpdateTenantAsync",
-    "RelativePath": "api/Tenant/UpdateTenantAsync/{id}",
+    "RelativePath": "api/Tenant/UpdateTenantAsync",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
         "Name": "tenant",
         "Type": "UserServiceAPI.DTOs.Tenant.TenantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/User/CreateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "UserServiceAPI.DTOs.Users.UserCreateDto",
         "IsRequired": true
       }
     ],
@@ -118,6 +171,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.ValuesController",
+    "Method": "GetAllTenantsAsync",
+    "RelativePath": "api/Values/GetAllTenantsAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -86,8 +86,8 @@ namespace CoreCommon.Middleware
         private async Task WriteUnauthorizedResponse(HttpContext context, string message)
         {
             var response = ApiResponse.ErrorResponse(
-                message: message,
-                errorCode: "INVALID_API_KEY", ResultStatusCode.InternalServerError
+                message: message
+               // errorCode: "INVALID_API_KEY", ResultStatusCode.InternalServerError
 
             );
 

@@ -35,7 +35,7 @@ namespace CoreCommon.HelperCommon
                 Success = false,
                 StatusCode = (int) statusCode,
                 Message = message,
-                Errors = errors ?? new List<ErrorDetail>()
+               // Errors = errors ?? new List<ErrorDetail>()
             };
         }
 

@@ -13,7 +13,7 @@ namespace CoreCommon.Models.UsersModels
         public string? Email { get; set; }
         public DateTime? LastLogin { get; set; }
         public bool IsActive { get; set; }
-
+        public bool IsEmailVerified { get; set; }
         // Extra columns for flexibility
         public string? Col1 { get; set; }
         public string? Col2 { get; set; }

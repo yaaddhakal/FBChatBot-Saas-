@@ -78,6 +78,8 @@ try
    // builder.Services.AddScoped<ClaimsHelper>();
     builder.Services.AddHttpContextAccessor();
     builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+    builder.Services.AddScoped<ITenantRepository, TenantRepository>();
+
     // ============================================================================
     // AUTHENTICATION & AUTHORIZATION - JWT Bearer
     // ============================================================================

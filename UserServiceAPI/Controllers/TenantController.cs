@@ -1,62 +1,91 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoreCommon.HelperCommon;
+using Microsoft.AspNetCore.Mvc;
 using UserServiceAPI.DTOs.Tenant;
 using UserServiceAPI.Interfaces;
 
-[ApiController]
-[Route("api/[controller]")]
-public class TenantController : ControllerBase
+namespace UserServiceAPI.Controllers
 {
-    private readonly ILogger<TenantController> _logger;
-    private readonly ITenantRepository _tenantRepository;
-
-    public TenantController(ILogger<TenantController> logger, ITenantRepository tenantRepository)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class TenantController : ControllerBase
     {
-        _logger = logger;
-        _tenantRepository = tenantRepository;
-    }
+        private readonly ILogger<TenantController> _logger;
+        private readonly ITenantRepository _tenantRepository;
 
-    [HttpGet("GetAllTenantsAsync")]
-    public async Task<IActionResult> GetAllTenantsAsync()
-    {
-        _logger.LogInformation("GetAllTenantsAsync called");
-        var result = await _tenantRepository.GetAllTenantsAsync();
-        return result.Success ? Ok(result) : NotFound(result);
-    }
+        public TenantController(ILogger<TenantController> logger, ITenantRepository tenantRepository)
+        {
+            _logger = logger;
+            _tenantRepository = tenantRepository;
+        }
+        [HttpPost("signup")]
+        public async Task<IActionResult> SignupTenantAsync([FromBody] SignupTenantRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-    [HttpGet("GetTenantByIdAsync/{id}")]
-    public async Task<IActionResult> GetTenantByIdAsync(int id)
-    {
-        _logger.LogInformation("GetTenantByIdAsync called with id={Id}", id);
+            var result = await _tenantRepository.SignupTenantAsync(request);
 
-        var result = await _tenantRepository.GetTenantByIdAsync(id);
-        return result.Success ? Ok(result) : NotFound(result);
-    }
+            if (!result.Success)
+                _logger.LogWarning("[Signup] Failed for user: {Username}", request.UserName);
 
-    [HttpPost("CreateTenantAsync")]
-    public async Task<IActionResult> CreateTenantAsync([FromBody] TenantDto tenant)
-    {
-        _logger.LogInformation("CreateTenantAsync called");
+            return ActionResultHelper.FromResult(this, result);
+        }
+        [HttpGet("GetAllTenantsListAsync")]
+        public async Task<IActionResult> GetAllTenantsListAsync()
+        {
+            var result = await _tenantRepository.GetAllTenantsListAsync();
+            return ActionResultHelper.FromResult(this, result);
+        }
 
-        var result = await _tenantRepository.CreateTenantAsync(tenant);
-        return result.Success ? Ok(result) : BadRequest(result);
-    }
+        [HttpGet("industries/{tenantID}")]
+        public async Task<IActionResult> GetIndustriesByTenantAsync(int tenantID)
+        {
+            var result = await _tenantRepository.GetIndustriesByTenantAsync(tenantID);
+            return ActionResultHelper.FromResult(this, result);
+        }
+        [HttpGet("GetAllTenantsAsync")]
+        public async Task<IActionResult> GetAllTenantsAsync()
+        {
+            _logger.LogInformation("GetAllTenantsAsync called");
+            var result = await _tenantRepository.GetAllTenantsAsync();
+            return result.Success ? Ok(result) : NotFound(result);
+        }
 
-    [HttpPut("UpdateTenantAsync/{id}")]
-    public async Task<IActionResult> UpdateTenantAsync(int id, [FromBody] TenantDto tenant)
-    {
-        _logger.LogInformation("UpdateTenantAsync called with id={Id}", id);
+        [HttpGet("GetTenantByIdAsync")]
+        public async Task<IActionResult> GetTenantByIdAsync(int id)
+        {
+            _logger.LogInformation("GetTenantByIdAsync called with id={Id}", id);
 
-        tenant.TenantID = id;
-        var result = await _tenantRepository.UpdateTenantAsync(tenant);
-        return result.Success ? Ok(result) : NotFound(result);
-    }
+            var result = await _tenantRepository.GetTenantByIdAsync(id);
+            return result.Success ? Ok(result) : NotFound(result);
+        }
 
-    [HttpDelete("DeleteTenantAsync/{id}")]
-    public async Task<IActionResult> DeleteTenantAsync(int id)
-    {
-        _logger.LogInformation("DeleteTenantAsync called with id={Id}", id);
+        [HttpPost("CreateTenantAsync")]
+        public async Task<IActionResult> CreateTenantAsync([FromBody] TenantDto tenant)
+        {
+            _logger.LogInformation("CreateTenantAsync called");
 
-        var result = await _tenantRepository.DeleteTenantAsync(id);
-        return result.Success ? Ok(result) : NotFound(result);
+            var result = await _tenantRepository.CreateTenantAsync(tenant);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPut("UpdateTenantAsync")]
+        public async Task<IActionResult> UpdateTenantAsync([FromBody] TenantDto tenant)
+        {
+            _logger.LogInformation("UpdateTenantAsync called with id={Id}", tenant.TenantID);
+
+           
+            var result = await _tenantRepository.UpdateTenantAsync(tenant);
+            return result.Success ? Ok(result) : NotFound(result);
+        }
+
+        [HttpDelete("DeleteTenantAsync")]
+        public async Task<IActionResult> DeleteTenantAsync(int id)
+        {
+            _logger.LogInformation("DeleteTenantAsync called with id={Id}", id);
+
+            var result = await _tenantRepository.DeleteTenantAsync(id);
+            return result.Success ? Ok(result) : NotFound(result);
+        }
     }
 }
