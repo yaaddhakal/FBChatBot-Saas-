@@ -17,6 +17,9 @@ namespace CoreCommon.Models.UsersModels
         // Extra columns for flexibility
         public string? Col1 { get; set; }
         public string? Col2 { get; set; }
+        public  bool IsEmailSent { get; set; }
+        public int RoleID { get; set; }
+        public string? RoleName { get; set; }
     }
 
 }

@@ -58,23 +58,26 @@ namespace AuthAPI.Controllers
            // return tokenResponse.Success ? Ok(tokenResponse) : NotFound(tokenResponse);
             return  ActionResultHelper.FromResult(this, tokenResponse);
         }
-      
+
         [HttpPost("refresh")]
+        [AllowAnonymous]
         public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
         {
-            
-            var userIdClaim = ClaimsHelper.GetUserId(User);
-            if (string.IsNullOrEmpty(userIdClaim))
-                return Unauthorized("User ID not found in token");
-            int userId = userIdClaim != null ? int.Parse(userIdClaim) : 0;
+            var principal = _jwtService.GetPrincipalFromExpiredToken(request.accessToken);
+            var userIdClaim = principal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                return Unauthorized("Invalid access token.");
+
             var tokenResponse = await _jwtService.AllTokenRefreshAsync(userId, request.RefreshToken);
-            if(!tokenResponse.Success || tokenResponse.Data == null)
+
+            if (!tokenResponse.Success || tokenResponse.Data == null)
             {
-                _logger.LogWarning("Failed token refresh attempt for user ID: {UserId}", userId);
+                _logger.LogWarning("Failed token refresh for user ID: {UserId}", userId);
                 return ActionResultHelper.FromResult(this, tokenResponse);
-            };
-           // return tokenResponse.Success ? Ok(tokenResponse) : NotFound(tokenResponse);
-            return  ActionResultHelper.FromResult(this, tokenResponse);
+            }
+
+            return ActionResultHelper.FromResult(this, tokenResponse);
         }
 
         //[HttpPost("logout")]
@@ -102,29 +105,28 @@ namespace AuthAPI.Controllers
         //    return ActionResultHelper.FromResult(this, result);
         //}
 
-        //[HttpGet("CurrentUserInfo")]
-        //[Authorize(Roles = "Admin")]
-        //public IActionResult GetCurrentUser()
-        //{
+        [HttpGet("CurrentUserInfo")]
+        [Authorize]
+        public IActionResult GetCurrentUser()
+        {
 
-        //        // Extract claims from JWT
-        //        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //        var username = User.FindFirst(ClaimTypes.Name)?.Value;
-        //        var role = User.FindFirst("role")?.Value;
-        //        var department = User.FindFirst("department")?.Value;
-        //        var companyId = User.FindFirst("companyId")?.Value;
+            // Extract claims from JWT
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var username = User.FindFirst(ClaimTypes.Name)?.Value;
+            var role = User.FindFirst("role")?.Value;
+            //var department = User.FindFirst("department")?.Value;
+            //var companyId = User.FindFirst("companyId")?.Value;
 
-        //    var userInfo = new 
-        //        {
-        //            UserId = userId,
-        //            Username = username,
-        //            Role = role,
-        //            Department = department,
-        //            CompanyId = companyId
-        //        };
+            var userInfo = new
+            {
+                UserId = userId,
+                Username = username,
+                Role = role,
+               
+            };
 
-        //    return Ok(ResultData<object>.Ok(userInfo));
+            return Ok(ResultData<object>.Ok(userInfo));
 
-        //}
+        }
     }
 }

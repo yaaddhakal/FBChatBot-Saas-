@@ -17,16 +17,48 @@ namespace UserServiceAPI.Controllers
             _logger = logger;
             _tenantRepository = tenantRepository;
         }
+        [HttpPost("resend-otp")]
+        public async Task<IActionResult> ResendOtpAsync([FromBody] ResendOtpRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _tenantRepository.ResendOtpAsync(request.UserID);
+
+            if (!result.Success)
+                _logger.LogWarning("[ResendOtp] Failed for UserID: {UserID} Reason: {Reason}",
+                    request.UserID, result.Error);
+
+            return ActionResultHelper.FromResult(this, result);
+        }
+        [HttpPost("verify-otp")]
+        public async Task<IActionResult> VerifyOtpAsync([FromBody] VerifyOtpRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _tenantRepository.VerifyOtpAsync(request);
+
+            if (!result.Success)
+                _logger.LogWarning("[VerifyOtp] Failed for UserID: {UserID} Reason: {Reason}",
+                    request.UserID, result.Error);
+
+            return ActionResultHelper.FromResult(this, result);
+        }
         [HttpPost("signup")]
         public async Task<IActionResult> SignupTenantAsync([FromBody] SignupTenantRequestDto request)
         {
+            
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var result = await _tenantRepository.SignupTenantAsync(request);
 
             if (!result.Success)
+            {
                 _logger.LogWarning("[Signup] Failed for user: {Username}", request.UserName);
+
+            }
 
             return ActionResultHelper.FromResult(this, result);
         }

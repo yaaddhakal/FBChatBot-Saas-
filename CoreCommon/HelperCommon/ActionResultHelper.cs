@@ -31,7 +31,7 @@ namespace CoreCommon.HelperCommon
                 return controller.BadRequest(errorResponse);
 
             if (result.StatusCode == (int)ResultStatusCode.Unauthorized)
-                return controller.Unauthorized();
+                return controller.Unauthorized(errorResponse);
 
             if (result.StatusCode == (int)ResultStatusCode.NotFound)
                 return controller.NotFound(errorResponse);

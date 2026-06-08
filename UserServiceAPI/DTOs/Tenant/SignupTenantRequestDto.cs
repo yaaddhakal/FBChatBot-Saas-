@@ -16,5 +16,5 @@ namespace UserServiceAPI.DTOs.Tenant
         [Required]
         public string PasswordHash { get; set; } = string.Empty;
     }
-
+    
 }

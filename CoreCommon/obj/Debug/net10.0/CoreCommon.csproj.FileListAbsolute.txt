@@ -18,8 +18,8 @@ E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.GeneratedMSBuildEdi
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.AssemblyInfoInputs.cache
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.AssemblyInfo.cs
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.csproj.CoreCompileInputs.cache
+E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.sourcelink.json
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.dll
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\refint\CoreCommon.dll
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.pdb
 E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\ref\CoreCommon.dll
-E:\ChatBot\FBChatBot\CoreCommon\obj\Debug\net10.0\CoreCommon.sourcelink.json

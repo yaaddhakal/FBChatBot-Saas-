@@ -72,6 +72,7 @@ E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.AssemblyInf
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.csproj.CoreCompileInputs.cache
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.MvcApplicationPartsAssemblyInfo.cs
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.sourcelink.json
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\rjimswa.dswa.cache.json
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -88,4 +89,3 @@ E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\refint\UserServiceAPI.dll
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.pdb
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.genruntimeconfig.cache
 E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\ref\UserServiceAPI.dll
-E:\ChatBot\FBChatBot\UserServiceAPI\obj\Debug\net10.0\UserServiceAPI.sourcelink.json

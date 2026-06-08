@@ -12,6 +12,7 @@ using Serilog;
 using Serilog.Events;
 using System.Data;
 using System.Text;
+using UserServiceAPI.DTOs.Emails;
 using UserServiceAPI.Interfaces;
 using UserServiceAPI.Repositories;
 
@@ -79,7 +80,12 @@ try
     builder.Services.AddHttpContextAccessor();
     builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
     builder.Services.AddScoped<ITenantRepository, TenantRepository>();
+    // bind settings
+    builder.Services.Configure<EmailSettings>(
+        builder.Configuration.GetSection("EmailSettings"));
 
+    // register service
+    builder.Services.AddScoped<IEmailService, EmailService>();
     // ============================================================================
     // AUTHENTICATION & AUTHORIZATION - JWT Bearer
     // ============================================================================

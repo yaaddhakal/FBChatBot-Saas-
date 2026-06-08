@@ -2,6 +2,7 @@
 using AuthAPI.Models.Entites.User;
 using CoreCommon.HelperCommon;
 using CoreCommon.Models.UsersModels;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,9 @@ namespace AuthAPI.Interfaces
 {
     public interface IUserRepository
     {
-        Task<ResultData<UserViewDto?>> ValidateUserAsync(string username, string password);
-        Task<ResultData<UserViewDto?>> GetUserByIdAsync(int userId);
+        Task<ResultData<UserModelDto?>> GetSingleUserByIdAsync(int userId);
+        Task<ResultData<SqlMapper.GridReader>> ValidateUserAsync(string username, string password);
+        Task<ResultData<UserDto?>> GetUserByIdAsync(int userId);
 
     }
 }

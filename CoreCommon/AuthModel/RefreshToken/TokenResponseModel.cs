@@ -48,6 +48,8 @@ namespace CoreCommon.AuthModel.RefreshToken
         /// Timestamp when token was issued
         /// </summary>
         public DateTime IssuedAt { get; set; } = DateTime.UtcNow;
+        public string Status { get; set; } = ""; // Default to "Success", can be set to error codes like "ERR_EMAIL_UNVERIFIED"
+        public bool IsOtpSent { get; set; } = false; // Default to true, set to false if email verification is required
     }
 }
 

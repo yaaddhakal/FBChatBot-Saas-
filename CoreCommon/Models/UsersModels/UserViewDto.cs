@@ -20,7 +20,7 @@ namespace CoreCommon.Models.UsersModels
         // User status
         public DateTime? LastLogin { get; set; }
         public bool IsActive { get; set; }
-
+        public bool IsEmailVerified { get; set; }
         // Role
         public int RoleID { get; set; }
         public string? RoleName { get; set; }

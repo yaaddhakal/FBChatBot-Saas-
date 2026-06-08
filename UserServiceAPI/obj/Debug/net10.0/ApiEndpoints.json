@@ -85,6 +85,22 @@
   },
   {
     "ContainingType": "UserServiceAPI.Controllers.TenantController",
+    "Method": "ResendOtpAsync",
+    "RelativePath": "api/Tenant/resend-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UserServiceAPI.DTOs.Tenant.ResendOtpRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
     "Method": "SignupTenantAsync",
     "RelativePath": "api/Tenant/signup",
     "HttpMethod": "POST",
@@ -110,6 +126,22 @@
       {
         "Name": "tenant",
         "Type": "UserServiceAPI.DTOs.Tenant.TenantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserServiceAPI.Controllers.TenantController",
+    "Method": "VerifyOtpAsync",
+    "RelativePath": "api/Tenant/verify-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UserServiceAPI.DTOs.Tenant.VerifyOtpRequestDto",
         "IsRequired": true
       }
     ],

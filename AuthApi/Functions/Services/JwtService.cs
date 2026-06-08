@@ -36,7 +36,7 @@ namespace AuthAPI.Function.Services
             _tokenRepository = tokenRepository;
         }
 
-        public string GenerateJWTToken(UserViewDto user)
+        public string GenerateJWTToken(UserDto user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -48,9 +48,6 @@ namespace AuthAPI.Function.Services
             new Claim("role", user.RoleName ?? string.Empty),
             new Claim("roleId", user.RoleID.ToString()),
             new Claim("IndustryID", user.ToString()  ?? string.Empty),
-            new Claim("IndustryName", user.IndustryName ?? string.Empty),
-            new Claim("TenantName", user.TenantName ?? string.Empty),
-            new Claim("TenantID", user.TenantID.ToString() ?? string.Empty),
             new Claim("UserType", user.UserType ?? string.Empty)
         };
 
@@ -129,7 +126,14 @@ namespace AuthAPI.Function.Services
 
                 return ResultData<string>.Fail( "Failed to issue refresh token.", ResultStatusCode.BadRequest);
         }
-        public async Task<ResultData<UserViewDto?>> ValidateRefreshTokenAsync(int userId, string refreshToken)
+
+        /// <summary>
+        /// /used to validate the refresh token and return the user details if valid, otherwise returns an error message.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="refreshToken"></param>
+        /// <returns></returns>
+        public async Task<ResultData<UserDto?>> ValidateRefreshTokenAsync(int userId, string refreshToken)
         {
             var expireDays = int.Parse(_config["Jwt:RefreshTokenExpireDays"] ?? "7");
             var expiresAt = DateTime.UtcNow.AddDays(expireDays);
@@ -157,15 +161,15 @@ namespace AuthAPI.Function.Services
             {
                 _logger.LogWarning("Invalid refresh token validation attempt for UserId: {UserId}", userId);
 
-                return ResultData<UserViewDto?>.Fail(result.Error ?? "Invalid refresh token", ResultStatusCode.NotFound);
+                return ResultData<UserDto?>.Fail(result.Error ?? "Invalid refresh token", ResultStatusCode.NotFound);
             }
 
             var mresult= await _userRepository.GetUserByIdAsync(userId);
             if(!mresult.Success  || mresult.Data == null)
             {
-                return ResultData<UserViewDto?>.Fail("User not found", ResultStatusCode.NotFound);
+                return ResultData<UserDto?>.Fail("User not found", ResultStatusCode.NotFound);
             };
-            return ResultData<UserViewDto?>.Ok(mresult.Data, ResultStatusCode.Ok);
+            return ResultData<UserDto?>.Ok(mresult.Data, ResultStatusCode.Ok);
         }
         public async Task<ResultData<TokenResponseModel?>> AllTokenRefreshAsync(int userId, string refreshToken)
         {
@@ -210,6 +214,29 @@ namespace AuthAPI.Function.Services
             rng.GetBytes(randomNumber);
             return Convert.ToBase64String(randomNumber);
         }
-      
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string token)
+        {
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidIssuer = _config["Jwt:Issuer"],
+                ValidAudience = _config["Jwt:Audience"],
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!)),
+                ValidateLifetime = false // ← key: allows expired tokens through
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
+
+            if (securityToken is not JwtSecurityToken jwtToken ||
+                !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                return null;
+
+            return principal;
+        }
+
     }
 }

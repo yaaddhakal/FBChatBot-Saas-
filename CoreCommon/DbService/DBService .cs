@@ -1,14 +1,9 @@
-using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoreCommon.DbService
 {
@@ -403,7 +398,7 @@ namespace CoreCommon.DbService
         }
 
 
-        public async Task<ResultData<string>> SignupTenantAsync(DynamicParameters parms,string spName)
+        public async Task<ResultData<SignupResultDto>> SignupTenantAsync(DynamicParameters parms,string spName)
         {
             try
             {
@@ -415,22 +410,94 @@ namespace CoreCommon.DbService
                     parms,
                     commandType: CommandType.StoredProcedure);
 
-                var message = parms.Get<string>("@ResultMessage");
+                var rmessage = parms.Get<string>("@ResultMessage");
                 var userID = parms.Get<int>("@UserID");
+               
+                if(string.IsNullOrEmpty(rmessage)||userID <= 0)
+                {
+                    _logger.LogWarning("[SignupTenantAsync] Signup failed. Message: {Message}", rmessage);
+                    return ResultData<SignupResultDto>.Fail("Signup failed with unknown error", ResultStatusCode.BadRequest);
+                }
 
-                // Only return UserID on success
-                return message == "Success"
-                    ? ResultData<string>.Ok(userID.ToString())
-                    : ResultData<string>.Fail(message, ResultStatusCode.BadRequest);
+                SignupResultDto result = new SignupResultDto
+                {
+                    Message = rmessage,
+                    UserID = userID,
+                    IsSuccess = true
+
+                };
+                return ResultData<SignupResultDto>.Ok(result, rmessage == "Success" ? ResultStatusCode.Ok : ResultStatusCode.BadRequest);
             }
             catch (SqlException ex)
             {
                 _logger.LogError(ex, "[SignupTenantAsync] SQL error.");
-                return ResultData<string>.Fail($"Database error: {ex.Message}", ResultStatusCode.InternalServerError);
+                return ResultData<SignupResultDto>.Fail($"Database error: {ex.Message}", ResultStatusCode.InternalServerError);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "[SignupTenantAsync] Unexpected error.");
+                return ResultData<SignupResultDto>.Fail("Unexpected error occurred", ResultStatusCode.InternalServerError);
+            }
+        }
+        public async Task<ResultData<string>> VerifyOtpAsync(DynamicParameters parms, string spName)
+        {
+            try
+            {
+                using var connection = CreateConnection();
+                await connection.OpenAsync();
+
+                await connection.ExecuteAsync(
+                     spName,
+                    parms,
+                    commandType: CommandType.StoredProcedure);
+
+                var message = parms.Get<string>("@ResultMessage");
+
+                return message == "Success"
+                    ? ResultData<string>.Ok(message)
+                    : ResultData<string>.Fail(message, ResultStatusCode.BadRequest);
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex, "[VerifyOtpAsync] SQL error.");
+                return ResultData<string>.Fail($"Database error: {ex.Message}", ResultStatusCode.InternalServerError);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[VerifyOtpAsync] Unexpected error.");
+                return ResultData<string>.Fail("Unexpected error occurred", ResultStatusCode.InternalServerError);
+            }
+        }
+        public async Task<ResultData<string>> ExecuteSpWithOutputAsync(
+    DynamicParameters parms,
+    string spName, CommandType commandType = CommandType.StoredProcedure,
+    int commandTimeout = DefaultTimeout)
+        {
+            try
+            {
+                using var connection = CreateConnection();
+                await connection.OpenAsync();
+
+                await connection.ExecuteAsync(
+                    spName,
+                    parms,
+                    commandType: commandType,
+                    commandTimeout: commandTimeout);
+
+                var message = parms.Get<string>("@ResultMessage");
+
+                return message == "Success"
+                    ? ResultData<string>.Ok(message)
+                    : ResultData<string>.Fail(message, ResultStatusCode.BadRequest);
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex, "[ExecuteSpWithOutputAsync] SQL error. SP: {SpName}", spName);
+                return ResultData<string>.Fail($"Database error: {ex.Message}", ResultStatusCode.InternalServerError);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[ExecuteSpWithOutputAsync] Unexpected error. SP: {SpName}", spName);
                 return ResultData<string>.Fail("Unexpected error occurred", ResultStatusCode.InternalServerError);
             }
         }
@@ -446,5 +513,12 @@ namespace CoreCommon.DbService
     {
         public List<T> Data { get; set; } = new();
         public int TotalCount { get; set; }
+    }
+    public class SignupResultDto
+    {
+        public int UserID { get; set; }
+        public string Message { get; set; } = string.Empty;
+        public bool IsSuccess { get; set; }
+        public bool IsEmailSent { get; set; }
     }
 }

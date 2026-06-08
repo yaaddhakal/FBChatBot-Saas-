@@ -1,10 +1,14 @@
 using AuthAPI.Function.Services;
 using AuthAPI.Interfaces;
+using AuthAPI.Models.Entites.User;
 using Azure.Core;
+using CoreCommon.AuthModel.RefreshToken;
 using CoreCommon.HelperCommon;
 using CoreCommon.HelperCommon.Enums;
+using CoreCommon.Models.UsersModels;
+using CoreCommon.Services.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using CoreCommon.AuthModel.RefreshToken;
 using System.Security.Claims;
 
 namespace AuthAPI.Repositories
@@ -16,15 +20,18 @@ namespace AuthAPI.Repositories
         private readonly IUserRepository _userRepository;
         private readonly JwtService _jwtService;
         private readonly ITokenRepository _tokenRepository;
-
-        public LogInRepository(IConfiguration config ,ILogger<LogInRepository> logger,
-            IUserRepository userRepository, JwtService jwtService, ITokenRepository tokenRepository)
+        private readonly IOtpRepositories _otpRepository;
+        private readonly IEmailService _emailService;
+        public LogInRepository(IConfiguration config, ILogger<LogInRepository> logger,
+            IUserRepository userRepository, JwtService jwtService, ITokenRepository tokenRepository,
+            IOtpRepositories _otpRepositories)
         {
             _logger = logger;
             _userRepository = userRepository;
             _jwtService = jwtService;
             _tokenRepository = tokenRepository;
             _config = config;
+            _otpRepository = _otpRepositories;
         }
 
         public async Task<ResultData<TokenResponseModel>> login(string userName, string password)
@@ -36,10 +43,38 @@ namespace AuthAPI.Repositories
             if (!userResult.Success || userResult.Data == null)
                 return ResultData<TokenResponseModel>.Fail(userResult.Error, ResultStatusCode.NotFound);
 
-            var user = userResult.Data;
-            if (!user.IsActive)
-                return ResultData<TokenResponseModel>.Fail("User account is inactive.", ResultStatusCode.Unauthorized);
+            UserDto user = new UserDto();
+            string mstatus = string.Empty;
 
+            using (var multi = userResult.Data)
+            {
+                user = await multi.ReadFirstOrDefaultAsync<UserDto>();
+                mstatus = await multi.ReadFirstOrDefaultAsync<string>();
+            }
+
+            // ✅ handle error cases first
+            switch (mstatus)
+            {
+                case "ERR_INACTIVE":
+                    return ResultData<TokenResponseModel>.Fail("User account is inactive.", ResultStatusCode.Unauthorized);
+
+                case "ERR_INVALID":
+                    return ResultData<TokenResponseModel>.Fail("Invalid credentials.", ResultStatusCode.Unauthorized);
+
+                case "ERR_EMAIL_UNVERIFIED":
+                    // ✅ resend OTP and RETURN — don't fall through!
+                    var otpResult = await _otpRepository.ResendOtpAsync(user.UserID);
+
+                    return ResultData<TokenResponseModel>.Ok(new TokenResponseModel
+                    {
+                        UserId = user.UserID,
+                        Username = user.UserName,
+                        IsOtpSent = otpResult.Success,   // ✅ true or false
+                        Status = "ERR_EMAIL_UNVERIFIED" // ✅ Angular opens OTP modal
+                    });
+            }
+
+            // ✅ only reaches here if mstatus == "Success"
             var jwtToken = _jwtService.GenerateJWTToken(user);
             var refreshToken = _jwtService.GenerateRefreshToken();
 
@@ -50,8 +85,6 @@ namespace AuthAPI.Repositories
                 return ResultData<TokenResponseModel>.Fail("Failed to save refresh token.");
             }
 
-            //_logger.LogInformation("Successful login for user: {Username} (UserId: {UserId})", user.UserName, user.UserID);
-
             return ResultData<TokenResponseModel>.Ok(new TokenResponseModel
             {
                 Token = jwtToken,
@@ -60,10 +93,10 @@ namespace AuthAPI.Repositories
                 Username = user.UserName,
                 UserType = user.UserType,
                 RoleName = user.RoleName,
-                ExpiresIn = int.Parse(_config["Jwt:ExpireMinutes"]) ///1800
+                ExpiresIn = int.Parse(_config["Jwt:ExpireMinutes"]),
+                IsOtpSent = false,
+                Status = "Success"
             });
-
-           
         }
 
         //public async Task<ResultData<TokenResponseModel>> GetRefreshToken(RefreshRequestDto request,int userId)

@@ -92,7 +92,11 @@ namespace CoreCommon.DbService
             object? parms = null,
             CommandType commandType = CommandType.StoredProcedure,
             int commandTimeout = 30);
-
-        Task<ResultData<string>> SignupTenantAsync(DynamicParameters parms, string spName);
+        Task<ResultData<string>> ExecuteSpWithOutputAsync(
+    DynamicParameters parms,
+    string spName, CommandType commandType = CommandType.StoredProcedure,
+    int commandTimeout = 30);
+        Task<ResultData<SignupResultDto>> SignupTenantAsync(DynamicParameters parms, string spName);
+        Task<ResultData<string>> VerifyOtpAsync(DynamicParameters parms, string spName);
     }
 }

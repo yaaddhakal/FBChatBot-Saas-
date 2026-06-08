@@ -6,13 +6,13 @@ using AuthAPI.Repositories;
 using CoreCommon.AuthModel.JwtSettings;
 using CoreCommon.DbService;
 using CoreCommon.Middleware;
+using CoreCommon.Models.EmailSettings;
 using CoreCommon.Services;
 using CoreCommon.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
@@ -60,7 +60,7 @@ try
     // ============================================================================
     // JWT SETTINGS CONFIGURATION
     // ============================================================================
-    
+
     builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
     builder.Services.AddScoped<JwtService>();
     builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -73,10 +73,15 @@ try
     // ============================================================================
     builder.Services.AddScoped<IDbConnection>(sp =>
     new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
-    builder.Services.AddScoped <IDbService, DBService>();
-    
+    builder.Services.AddScoped<IDbService, DBService>();
 
 
+    builder.Services.Configure<EmailSettings>(
+       builder.Configuration.GetSection("EmailSettings"));
+
+    // register service
+    builder.Services.AddScoped<IEmailService, EmailService>();
+    builder.Services.AddScoped<IOtpRepositories, OtpRepositories>();
 
 
 
@@ -92,7 +97,7 @@ try
     .AddJwtBearer(options =>
     {
         var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
-        
+
         if (jwtSettings == null)
         {
             throw new InvalidOperationException("JWT settings are not configured in appsettings.json");
@@ -133,7 +138,7 @@ try
     // ============================================================================
     // DEPENDENCY INJECTION - Services & Repositories
     // ============================================================================
-   
+
     // ============================================================================
     // CONTROLLERS & API CONFIGURATION
     // ============================================================================
@@ -156,8 +161,8 @@ try
                   .AllowAnyHeader();
         });
     });
-   
-    
+
+
     // ============================================================================
     // SWAGGER/OpenAPI CONFIGURATION
     // ============================================================================
@@ -230,7 +235,7 @@ try
 
 
 
-   
+
     // ============================================================================
     // HEALTH CHECKS
     // ============================================================================
@@ -244,7 +249,7 @@ try
     // ============================================================================
     // MIDDLEWARE PIPELINE
     // ============================================================================
-    
+
     // 1. Global Exception Handler (should be first)
     app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
@@ -260,8 +265,8 @@ try
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyWallet Auth API v1");
             c.RoutePrefix = string.Empty; // Swagger at root
         });
-        
-        Log.Information("Swagger UI available at: http://localhost:{Port}/", 
+
+        Log.Information("Swagger UI available at: http://localhost:{Port}/",
             app.Urls.FirstOrDefault()?.Split(':').Last());
     }
 
@@ -275,7 +280,7 @@ try
     app.UseCors("AllowAll");
 
     // 7. API Key Middleware (before authentication)
-    app.UseMiddleware<ApiKeyMiddleware>();
+    //app.UseMiddleware<ApiKeyMiddleware>();
 
     // 8. Authentication (JWT validation)
     app.UseAuthentication();
@@ -318,3 +323,6 @@ finally
 {
     Log.CloseAndFlush();
 }
+public partial class Program { }
+
+
